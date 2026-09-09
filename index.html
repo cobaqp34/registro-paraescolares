@@ -618,6 +618,9 @@
     let alumnoActual = null;
     let talleresActuales = [];
     let registroActual = null;
+    let registrosActuales = [];
+    let permiteDobleRegistro = false;
+    let puedeRegistrarMas = true;
 
     // URL de la Web App de Apps Script que funciona como backend/API.
     const API_URL = 'https://script.google.com/macros/s/AKfycbyM1h54RdRc-73C4s6jz_4WmRSmlC6wuc10046BxCeiZD9F1pbZ_aLKDpMU5YeHEZvZ/exec';
@@ -709,6 +712,17 @@
       alumnoActual = response.student;
       talleresActuales = response.talleres || [];
       registroActual = response.registro || null;
+      registrosActuales = response.registros || (registroActual ? [registroActual] : []);
+      const matriculaConsultada = String(alumnoActual?.matricula || '').trim();
+      const esEscoltaYPaz = [
+        '263410058', '263410046', '263410040',
+        '263410036', '263410044', '263410057'
+      ].includes(matriculaConsultada);
+
+      permiteDobleRegistro = Boolean(response.permiteDobleRegistro) || esEscoltaYPaz;
+      puedeRegistrarMas = permiteDobleRegistro
+        ? registrosActuales.length < 2
+        : response.puedeRegistrarMas !== false;
 
       mostrarDatos(response.data);
       mostrarTalleres();
@@ -749,26 +763,35 @@
       notice.innerHTML = '';
       list.innerHTML = '';
 
-      if (registroActual) {
+      if (registrosActuales.length) {
+        const detalle = registrosActuales
+          .map(reg => `${escapeHtml(reg.taller)} (${escapeHtml(reg.dia)} ${escapeHtml(reg.horario)})`)
+          .join('<br>');
+
         notice.innerHTML = `
           <div class="message success">
-            Ya tienes registro en ${escapeHtml(registroActual.taller)}
-            (${escapeHtml(registroActual.dia)} ${escapeHtml(registroActual.horario)}).
+            ${registrosActuales.length === 1 ? 'Ya tienes registro en:' : 'Ya tienes registros en:'}<br>
+            ${detalle}
           </div>
         `;
+      }
+
+      if (!puedeRegistrarMas) {
         controls.classList.add('hidden');
         validarSeleccion();
         return;
-      } else {
-        controls.classList.remove('hidden');
       }
 
-      const talleresDisponibles = talleresActuales.filter(taller => taller.eligible);
+      controls.classList.remove('hidden');
+
+      const talleresDisponibles = talleresActuales.filter(
+        taller => taller.eligible && !taller.yaRegistrado
+      );
 
       if (!talleresDisponibles.length) {
         list.innerHTML = `
           <div class="message info">
-            No hay talleres disponibles para tu grupo o el cupo ya esta lleno.
+            No hay talleres adicionales disponibles para tu registro.
           </div>
         `;
         controls.classList.add('hidden');
@@ -864,7 +887,34 @@
             return;
           }
 
-          registroActual = response.registro;
+          registroActual = response.registro || null;
+          registrosActuales = response.registros || registrosActuales.concat(
+            response.registro ? [response.registro] : []
+          );
+
+          if (selected) {
+            const tallerLocal = talleresActuales.find(t => t.id === selected.id);
+            if (tallerLocal) {
+              tallerLocal.yaRegistrado = true;
+              tallerLocal.selectable = false;
+            }
+          }
+
+          // Para los alumnos autorizados de 1.2, siempre permitimos hasta 2
+          // registros (Escolta + Club de Paz 1.2). No ocultar el segundo taller
+          // después del primer registro.
+          const matriculaActual = String(alumnoActual?.matricula || '').trim();
+          const esEscoltaYPaz = [
+            '263410058', '263410046', '263410040',
+            '263410036', '263410044', '263410057'
+          ].includes(matriculaActual);
+
+          permiteDobleRegistro = permiteDobleRegistro || esEscoltaYPaz;
+          puedeRegistrarMas = permiteDobleRegistro
+            ? registrosActuales.length < 2
+            : registrosActuales.length < 1;
+
+          // Si queda un taller permitido sin registrar, volver a mostrarlo.
           mostrarMensaje(response.message || 'Registro realizado.', 'success');
           mostrarTalleres();
         },
@@ -880,7 +930,7 @@
       const selected = obtenerTallerSeleccionado();
       const button = document.getElementById('btnRegistrar');
 
-      if (!selected || registroActual) {
+      if (!selected || !puedeRegistrarMas) {
         button.disabled = true;
         return;
       }
@@ -935,6 +985,9 @@
       alumnoActual = null;
       talleresActuales = [];
       registroActual = null;
+      registrosActuales = [];
+      permiteDobleRegistro = false;
+      puedeRegistrarMas = true;
       document.getElementById('status').innerHTML = '';
       document.getElementById('results').classList.add('hidden');
       document.getElementById('registration').classList.add('hidden');
