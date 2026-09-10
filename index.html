@@ -576,7 +576,7 @@
 <body>
   <div class="page-shell">
   <main class="container">
-    <h1>COBAQ Plantel 34 Arroyo Seco <br>Registro a Talleres Paraescolares Semestre 2026-B</h1>
+    <h1>Registro a Talleres Paraescolares Semestre 2026-B</h1>
     <p class="description">Ingresa tu matricula para consultar tus datos y elegir un taller disponible.</p>
 
     <label for="idInput">Matricula</label>
@@ -728,13 +728,19 @@
       mostrarTalleres();
     }
 
+    function esAlumnoEscoltaYPaz() {
+      const matricula = String(alumnoActual?.matricula || '').trim();
+      return [
+        '263410058', '263410046', '263410040',
+        '263410036', '263410044', '263410057'
+      ].includes(matricula);
+    }
+
     function mostrarDatos(data) {
       const container = document.getElementById('dataContainer');
       container.innerHTML = '';
 
-      Object.entries(data)
-  .filter(([campo]) => campo !== 'SEMESTRE')
-  .forEach(([campo, valor]) => {
+      Object.entries(data).forEach(([campo, valor]) => {
         const row = document.createElement('div');
         row.className = 'field';
 
@@ -818,8 +824,8 @@
         item.className = `workshop-option ${disabledByCapacity ? 'disabled' : ''}`;
 
         const radio = document.createElement('input');
-        radio.type = 'radio';
-        radio.name = 'taller';
+        radio.type = esAlumnoEscoltaYPaz() ? 'checkbox' : 'radio';
+        radio.name = esAlumnoEscoltaYPaz() ? 'tallerMultiple' : 'taller';
         radio.value = taller.id;
         radio.disabled = disabledByCapacity;
         radio.onchange = validarSeleccion;
@@ -859,14 +865,21 @@
     }
 
     function registrar() {
-      const selected = obtenerTallerSeleccionado();
+      const seleccionados = obtenerTalleresSeleccionados();
 
-      if (!alumnoActual || !selected) {
-        mostrarMensaje('Selecciona un taller disponible.', 'error');
+      if (!alumnoActual || !seleccionados.length) {
+        mostrarMensaje('Selecciona al menos un taller disponible.', 'error');
         return;
       }
 
-      const genero = obtenerGeneroParaRegistro(selected);
+      for (const taller of seleccionados) {
+        if (!tallerTieneCupoParaGenero(taller)) {
+          mostrarMensaje(`No hay cupo disponible en ${taller.name}.`, 'error');
+          return;
+        }
+      }
+
+      const genero = obtenerGeneroParaRegistro(seleccionados[0]);
 
       if (!genero) {
         mostrarMensaje('Acude a control escolar para completar tu genero.', 'error');
@@ -879,7 +892,7 @@
         'registrar',
         {
           matricula: alumnoActual.matricula,
-          tallerId: selected.id
+          tallerIds: JSON.stringify(seleccionados.map(taller => taller.id))
         },
         function(response) {
           setLoading('btnRegistrar', false, 'Registrarme');
@@ -890,33 +903,23 @@
           }
 
           registroActual = response.registro || null;
-          registrosActuales = response.registros || registrosActuales.concat(
-            response.registro ? [response.registro] : []
-          );
+          registrosActuales = response.registros || registrosActuales;
 
-          if (selected) {
-            const tallerLocal = talleresActuales.find(t => t.id === selected.id);
+          // Marcar todos los talleres seleccionados como registrados.
+          seleccionados.forEach(tallerSeleccionado => {
+            const tallerLocal = talleresActuales.find(t => t.id === tallerSeleccionado.id);
             if (tallerLocal) {
               tallerLocal.yaRegistrado = true;
               tallerLocal.selectable = false;
             }
-          }
+          });
 
-          // Para los alumnos autorizados de 1.2, siempre permitimos hasta 2
-          // registros (Escolta + Club de Paz 1.2). No ocultar el segundo taller
-          // después del primer registro.
-          const matriculaActual = String(alumnoActual?.matricula || '').trim();
-          const esEscoltaYPaz = [
-            '263410058', '263410046', '263410040',
-            '263410036', '263410044', '263410057'
-          ].includes(matriculaActual);
-
-          permiteDobleRegistro = permiteDobleRegistro || esEscoltaYPaz;
-          puedeRegistrarMas = permiteDobleRegistro
+          // Los seis alumnos autorizados pueden registrar como máximo:
+          // Escolta + Club de Paz 1.2.
+          puedeRegistrarMas = esAlumnoEscoltaYPaz()
             ? registrosActuales.length < 2
             : registrosActuales.length < 1;
 
-          // Si queda un taller permitido sin registrar, volver a mostrarlo.
           mostrarMensaje(response.message || 'Registro realizado.', 'success');
           mostrarTalleres();
         },
@@ -929,20 +932,28 @@
     }
 
     function validarSeleccion() {
-      const selected = obtenerTallerSeleccionado();
+      const seleccionados = obtenerTalleresSeleccionados();
       const button = document.getElementById('btnRegistrar');
 
-      if (!selected || !puedeRegistrarMas) {
+      if (!seleccionados.length || !puedeRegistrarMas) {
         button.disabled = true;
         return;
       }
 
-      if (!tallerTieneCupoParaGenero(selected)) {
-        button.disabled = true;
-        return;
-      }
+      button.disabled = !seleccionados.every(taller => {
+        return tallerTieneCupoParaGenero(taller) && obtenerGeneroParaRegistro(taller);
+      });
+    }
 
-      button.disabled = !obtenerGeneroParaRegistro(selected);
+    function obtenerTalleresSeleccionados() {
+      const multiple = esAlumnoEscoltaYPaz();
+      const selector = multiple
+        ? 'input[name="tallerMultiple"]:checked'
+        : 'input[name="taller"]:checked';
+
+      return Array.from(document.querySelectorAll(selector))
+        .map(input => talleresActuales.find(taller => taller.id === input.value))
+        .filter(Boolean);
     }
 
     function tallerTieneCupoParaGenero(taller) {
@@ -967,12 +978,6 @@
         : 'Sin cupo disponible para mujeres.';
     }
 
-    function obtenerTallerSeleccionado() {
-      const checked = document.querySelector('input[name="taller"]:checked');
-      return checked
-        ? talleresActuales.find(taller => taller.id === checked.value)
-        : null;
-    }
 
     function obtenerGeneroParaRegistro(taller) {
       return alumnoActual.genero || '';
