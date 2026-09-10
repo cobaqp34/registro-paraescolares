@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>COBAQ Plantel 34 Arroyo Seco <br>Registro a Talleres Paraescolares Semestre 2026-B</title>
+  <title>Registro a Talleres Paraescolares Semestre 2026-B</title>
 
   <script>
     (function() {
@@ -576,7 +576,7 @@
 <body>
   <div class="page-shell">
   <main class="container">
-    <h1>Registro a Talleres Paraescolares Semestre 2026-B</h1>
+    <h1>COBAQ Plantel 34 Arroyo Seco <br>Registro a Talleres Paraescolares Semestre 2026-B</h1>
     <p class="description">Ingresa tu matricula para consultar tus datos y elegir un taller disponible.</p>
 
     <label for="idInput">Matricula</label>
@@ -732,7 +732,9 @@
       const container = document.getElementById('dataContainer');
       container.innerHTML = '';
 
-      Object.entries(data).forEach(([campo, valor]) => {
+      Object.entries(data)
+  .filter(([campo]) => campo !== 'SEMESTRE')
+  .forEach(([campo, valor]) => {
         const row = document.createElement('div');
         row.className = 'field';
 
