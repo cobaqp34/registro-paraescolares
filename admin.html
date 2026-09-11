@@ -33,6 +33,7 @@
         <div class="sub" style="margin-bottom:0">Control de cupos e inscritos</div>
       </div>
       <div class="actions">
+        <button id="studentSearchTopBtn" type="button">Buscar alumno</button>
         <button id="refreshBtn" class="refresh">Actualizar</button>
         <button id="logoutBtn" class="logout">Cerrar sesión</button>
       </div>
@@ -68,13 +69,14 @@
       </div>
     </div>
 
-    <div id="studentSearchSection" class="section">
+    <div id="studentSearchSection" class="section hidden">
       <h2>Buscar alumno</h2>
       <div class="student-search-card">
         <div class="small" style="margin-bottom:10px">Busca por matrícula, nombre o grupo para consultar sus talleres inscritos.</div>
         <div class="toolbar">
           <input id="adminStudentSearch" placeholder="Matrícula, nombre o grupo..." autocomplete="off">
           <button id="clearStudentSearch" class="logout" type="button">Limpiar</button>
+          <button id="closeStudentSearch" class="logout" type="button">Cerrar búsqueda</button>
         </div>
         <div id="adminStudentResults" class="search-results">
           <div class="empty">Escribe al menos 2 caracteres para buscar.</div>
@@ -206,6 +208,16 @@ function renderWorkshops(){
   }).join(''):'<div class="empty">No hay talleres que coincidan con el filtro.</div>';
 }
 
+function abrirBusquedaAlumno(){
+  $('studentSearchSection').classList.remove('hidden');
+  $('adminStudentSearch').focus();
+  $('studentSearchSection').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function cerrarBusquedaAlumno(){
+  $('studentSearchSection').classList.add('hidden');
+}
+
 function buscarAlumnoAdmin(){
   const q=$('adminStudentSearch').value.trim().toLowerCase();
   if(q.length<2){
@@ -294,6 +306,8 @@ $('refreshBtn').addEventListener('click',cargarDatos);
 $('unregisteredSearch').addEventListener('input',renderUnregistered);
 $('adminStudentSearch').addEventListener('input',buscarAlumnoAdmin);
 $('clearStudentSearch').addEventListener('click',limpiarBusquedaAlumno);
+$('studentSearchTopBtn').addEventListener('click',abrirBusquedaAlumno);
+$('closeStudentSearch').addEventListener('click',cerrarBusquedaAlumno);
 $('logoutBtn').addEventListener('click',logout);
 $('statusFilter').addEventListener('change',renderWorkshops);
 $('workshopSearch').addEventListener('input',renderWorkshops);
