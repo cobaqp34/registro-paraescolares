@@ -728,14 +728,6 @@
       mostrarTalleres();
     }
 
-    function esAlumnoEscoltaYPaz() {
-      const matricula = String(alumnoActual?.matricula || '').trim();
-      return [
-        '263410058', '263410046', '263410040',
-        '263410036', '263410044', '263410057'
-      ].includes(matricula);
-    }
-
     function mostrarDatos(data) {
       const container = document.getElementById('dataContainer');
       container.innerHTML = '';
@@ -824,8 +816,8 @@
         item.className = `workshop-option ${disabledByCapacity ? 'disabled' : ''}`;
 
         const radio = document.createElement('input');
-        radio.type = esAlumnoEscoltaYPaz() ? 'checkbox' : 'radio';
-        radio.name = esAlumnoEscoltaYPaz() ? 'tallerMultiple' : 'taller';
+        radio.type = 'radio';
+        radio.name = 'taller';
         radio.value = taller.id;
         radio.disabled = disabledByCapacity;
         radio.onchange = validarSeleccion;
@@ -865,21 +857,14 @@
     }
 
     function registrar() {
-      const seleccionados = obtenerTalleresSeleccionados();
+      const selected = obtenerTallerSeleccionado();
 
-      if (!alumnoActual || !seleccionados.length) {
-        mostrarMensaje('Selecciona al menos un taller disponible.', 'error');
+      if (!alumnoActual || !selected) {
+        mostrarMensaje('Selecciona un taller disponible.', 'error');
         return;
       }
 
-      for (const taller of seleccionados) {
-        if (!tallerTieneCupoParaGenero(taller)) {
-          mostrarMensaje(`No hay cupo disponible en ${taller.name}.`, 'error');
-          return;
-        }
-      }
-
-      const genero = obtenerGeneroParaRegistro(seleccionados[0]);
+      const genero = obtenerGeneroParaRegistro(selected);
 
       if (!genero) {
         mostrarMensaje('Acude a control escolar para completar tu genero.', 'error');
@@ -892,7 +877,7 @@
         'registrar',
         {
           matricula: alumnoActual.matricula,
-          tallerIds: JSON.stringify(seleccionados.map(taller => taller.id))
+          tallerId: selected.id
         },
         function(response) {
           setLoading('btnRegistrar', false, 'Registrarme');
@@ -903,23 +888,33 @@
           }
 
           registroActual = response.registro || null;
-          registrosActuales = response.registros || registrosActuales;
+          registrosActuales = response.registros || registrosActuales.concat(
+            response.registro ? [response.registro] : []
+          );
 
-          // Marcar todos los talleres seleccionados como registrados.
-          seleccionados.forEach(tallerSeleccionado => {
-            const tallerLocal = talleresActuales.find(t => t.id === tallerSeleccionado.id);
+          if (selected) {
+            const tallerLocal = talleresActuales.find(t => t.id === selected.id);
             if (tallerLocal) {
               tallerLocal.yaRegistrado = true;
               tallerLocal.selectable = false;
             }
-          });
+          }
 
-          // Los seis alumnos autorizados pueden registrar como máximo:
-          // Escolta + Club de Paz 1.2.
-          puedeRegistrarMas = esAlumnoEscoltaYPaz()
+          // Para los alumnos autorizados de 1.2, siempre permitimos hasta 2
+          // registros (Escolta + Club de Paz 1.2). No ocultar el segundo taller
+          // después del primer registro.
+          const matriculaActual = String(alumnoActual?.matricula || '').trim();
+          const esEscoltaYPaz = [
+            '263410058', '263410046', '263410040',
+            '263410036', '263410044', '263410057'
+          ].includes(matriculaActual);
+
+          permiteDobleRegistro = permiteDobleRegistro || esEscoltaYPaz;
+          puedeRegistrarMas = permiteDobleRegistro
             ? registrosActuales.length < 2
             : registrosActuales.length < 1;
 
+          // Si queda un taller permitido sin registrar, volver a mostrarlo.
           mostrarMensaje(response.message || 'Registro realizado.', 'success');
           mostrarTalleres();
         },
@@ -932,28 +927,20 @@
     }
 
     function validarSeleccion() {
-      const seleccionados = obtenerTalleresSeleccionados();
+      const selected = obtenerTallerSeleccionado();
       const button = document.getElementById('btnRegistrar');
 
-      if (!seleccionados.length || !puedeRegistrarMas) {
+      if (!selected || !puedeRegistrarMas) {
         button.disabled = true;
         return;
       }
 
-      button.disabled = !seleccionados.every(taller => {
-        return tallerTieneCupoParaGenero(taller) && obtenerGeneroParaRegistro(taller);
-      });
-    }
+      if (!tallerTieneCupoParaGenero(selected)) {
+        button.disabled = true;
+        return;
+      }
 
-    function obtenerTalleresSeleccionados() {
-      const multiple = esAlumnoEscoltaYPaz();
-      const selector = multiple
-        ? 'input[name="tallerMultiple"]:checked'
-        : 'input[name="taller"]:checked';
-
-      return Array.from(document.querySelectorAll(selector))
-        .map(input => talleresActuales.find(taller => taller.id === input.value))
-        .filter(Boolean);
+      button.disabled = !obtenerGeneroParaRegistro(selected);
     }
 
     function tallerTieneCupoParaGenero(taller) {
@@ -978,6 +965,12 @@
         : 'Sin cupo disponible para mujeres.';
     }
 
+    function obtenerTallerSeleccionado() {
+      const checked = document.querySelector('input[name="taller"]:checked');
+      return checked
+        ? talleresActuales.find(taller => taller.id === checked.value)
+        : null;
+    }
 
     function obtenerGeneroParaRegistro(taller) {
       return alumnoActual.genero || '';
