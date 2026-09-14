@@ -5,7 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Panel Administrativo · Paraescolares 2026-B</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#eef2f5;color:#202124;font-family:Arial,Helvetica,sans-serif}.shell{max-width:1200px;margin:0 auto;padding:24px}.card{background:#fff;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.08);padding:24px}.hidden{display:none!important}.login{max-width:430px;margin:8vh auto}.h1{font-size:25px;font-weight:700;margin:0 0 7px}.sub{color:#5f6368;margin-bottom:22px;line-height:1.45}label{display:block;font-weight:700;margin:0 0 7px}input,select{width:100%;padding:12px 13px;border:1px solid #cfd6dc;border-radius:6px;font-size:16px;margin-bottom:15px}.password-wrap{position:relative;margin-bottom:15px}.password-wrap input{margin-bottom:0;padding-right:48px}.toggle-password{position:absolute;right:8px;top:50%;transform:translateY(-50%);min-height:34px;width:38px;padding:0;background:transparent;color:#5f6368;font-size:18px}.toggle-password:hover{background:#f1f3f4;filter:none}button{border:0;border-radius:6px;min-height:44px;padding:0 18px;font-weight:700;font-size:15px;cursor:pointer;background:#4661e8;color:#fff}button:hover{filter:brightness(.96)}button:disabled{opacity:.6;cursor:default}.logout{background:#5f6368}.refresh{background:#188038}.danger{background:#d93025}.msg{padding:11px 13px;border-radius:6px;margin-top:14px;line-height:1.4}.error{background:#fce8e6;color:#a50e0e}.success{background:#e6f4ea;color:#0d652d}.info{background:#e8f0fe;color:#174ea6}.top{display:flex;justify-content:space-between;gap:15px;align-items:flex-start;margin-bottom:22px}.actions{display:flex;gap:8px;flex-wrap:wrap}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:22px}.stat{border:1px solid #e1e5e9;border-radius:8px;padding:16px}.stat.clickable{cursor:pointer;transition:.15s}.stat.clickable:hover{border-color:#4661e8;box-shadow:0 0 0 2px rgba(70,97,232,.08)}.stat.clickable:focus{outline:2px solid #4661e8;outline-offset:2px}.stat .n{font-size:26px;font-weight:700}.stat .l{font-size:13px;color:#5f6368;margin-top:4px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 15px}.toolbar select,.toolbar input{margin:0;max-width:280px}.table-wrap{overflow:auto;border:1px solid #e1e5e9;border-radius:8px}table{width:100%;border-collapse:collapse;min-width:780px}th,td{text-align:left;padding:11px 12px;border-bottom:1px solid #edf0f2;font-size:14px}th{background:#f8f9fa;position:sticky;top:0;z-index:1}.badge{display:inline-block;padding:4px 8px;border-radius:999px;font-size:12px;font-weight:700}.ok{background:#e6f4ea;color:#137333}.full{background:#fce8e6;color:#a50e0e}.unlimited{background:#e8f0fe;color:#174ea6}.section{margin-top:24px}.section h2{font-size:19px;margin:0 0 12px}.workshop-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.workshop{border:1px solid #dce1e6;border-radius:8px;padding:15px}.workshop.selected{border-color:#4661e8;box-shadow:0 0 0 2px rgba(70,97,232,.12)}.workshop-head{display:flex;justify-content:space-between;gap:10px}.workshop-name{font-weight:700;font-size:16px}.meta{color:#5f6368;font-size:13px;line-height:1.5;margin-top:6px}.bar{height:8px;background:#edf0f2;border-radius:99px;overflow:hidden;margin:12px 0 8px}.bar>div{height:100%;background:#4661e8}.detail{margin-top:12px}.empty{padding:18px;text-align:center;color:#5f6368}.small{font-size:12px;color:#5f6368}.student-list{max-height:500px;overflow:auto}.student-search-card{border:1px solid #dce1e6;border-radius:8px;padding:16px;background:#fff}.student-result{border:1px solid #e1e5e9;border-radius:8px;padding:14px;margin-top:12px}.student-result h3{margin:0 0 6px;font-size:17px}.student-workshop{padding:9px 0;border-bottom:1px solid #edf0f2}.student-workshop:last-child{border-bottom:0}.student-workshop strong{display:block}.search-results{max-height:420px;overflow:auto}.footer{margin-top:18px;color:#5f6368;font-size:12px}@media(max-width:900px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.workshop-grid{grid-template-columns:1fr}.top{flex-direction:column}}@media(max-width:520px){.shell{padding:12px}.card{padding:16px}.stats{grid-template-columns:1fr 1fr}.stat .n{font-size:22px}}
+*{box-sizing:border-box}body{margin:0;background:#eef2f5;color:#202124;font-family:Arial,Helvetica,sans-serif}.shell{max-width:1200px;margin:0 auto;padding:24px}.card{background:#fff;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.08);padding:24px}.hidden{display:none!important}.login{max-width:430px;margin:8vh auto}.h1{font-size:25px;font-weight:700;margin:0 0 7px}.sub{color:#5f6368;margin-bottom:22px;line-height:1.45}label{display:block;font-weight:700;margin:0 0 7px}input,select{width:100%;padding:12px 13px;border:1px solid #cfd6dc;border-radius:6px;font-size:16px;margin-bottom:15px}.password-wrap{position:relative;margin-bottom:15px}.password-wrap input{margin-bottom:0;padding-right:48px}.toggle-password{position:absolute;right:8px;top:50%;transform:translateY(-50%);min-height:34px;width:38px;padding:0;background:transparent;color:#5f6368;font-size:18px}.toggle-password:hover{background:#f1f3f4;filter:none}button{border:0;border-radius:6px;min-height:44px;padding:0 18px;font-weight:700;font-size:15px;cursor:pointer;background:#4661e8;color:#fff}button:hover{filter:brightness(.96)}button:disabled{opacity:.6;cursor:default}.logout{background:#5f6368}.refresh{background:#188038}.danger{background:#d93025}.msg{padding:11px 13px;border-radius:6px;margin-top:14px;line-height:1.4}.error{background:#fce8e6;color:#a50e0e}.success{background:#e6f4ea;color:#0d652d}.info{background:#e8f0fe;color:#174ea6}.top{display:flex;justify-content:space-between;gap:15px;align-items:flex-start;margin-bottom:22px}.actions{display:flex;gap:8px;flex-wrap:wrap}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:22px}.stat{border:1px solid #e1e5e9;border-radius:8px;padding:16px}.stat.clickable{cursor:pointer;transition:.15s}.stat.clickable:hover{border-color:#4661e8;box-shadow:0 0 0 2px rgba(70,97,232,.08)}.stat.clickable:focus{outline:2px solid #4661e8;outline-offset:2px}.stat .n{font-size:26px;font-weight:700}.stat .l{font-size:13px;color:#5f6368;margin-top:4px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 15px}.toolbar select,.toolbar input{margin:0;max-width:280px}.table-wrap{overflow:auto;border:1px solid #e1e5e9;border-radius:8px}table{width:100%;border-collapse:collapse;min-width:780px}th,td{text-align:left;padding:11px 12px;border-bottom:1px solid #edf0f2;font-size:14px}th{background:#f8f9fa;position:sticky;top:0;z-index:1}.badge{display:inline-block;padding:4px 8px;border-radius:999px;font-size:12px;font-weight:700}.ok{background:#e6f4ea;color:#137333}.full{background:#fce8e6;color:#a50e0e}.unlimited{background:#e8f0fe;color:#174ea6}.section{margin-top:24px}.section h2{font-size:19px;margin:0 0 12px}.workshop-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.workshop{border:1px solid #dce1e6;border-radius:8px;padding:15px}.workshop.selected{border-color:#4661e8;box-shadow:0 0 0 2px rgba(70,97,232,.12)}.workshop-head{display:flex;justify-content:space-between;gap:10px}.workshop-name{font-weight:700;font-size:16px}.meta{color:#5f6368;font-size:13px;line-height:1.5;margin-top:6px}.bar{height:8px;background:#edf0f2;border-radius:99px;overflow:hidden;margin:12px 0 8px}.bar>div{height:100%;background:#4661e8}.detail{margin-top:12px}.empty{padding:18px;text-align:center;color:#5f6368}.small{font-size:12px;color:#5f6368}.student-list{max-height:500px;overflow:auto}.student-search-card{border:1px solid #dce1e6;border-radius:8px;padding:16px;background:#fff}.student-result{border:1px solid #e1e5e9;border-radius:8px;padding:14px;margin-top:12px}.student-result h3{margin:0 0 6px;font-size:17px}.student-workshop{padding:9px 0;border-bottom:1px solid #edf0f2}.student-workshop:last-child{border-bottom:0}.student-workshop strong{display:block}.search-results{max-height:420px;overflow:auto}
+.mode-switch{display:flex;gap:8px;margin:0 0 18px;flex-wrap:wrap}
+.mode-btn{background:#6b7280}
+.mode-btn.active{background:#4661e8}
+.second-panel{border:1px solid #dfe5ea;border-radius:9px;padding:18px;background:#fbfcfd}
+.second-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:12px 0 18px}
+.second-stat{border:1px solid #e1e5e9;border-radius:8px;padding:14px;background:#fff}
+.second-stat .n{font-size:25px;font-weight:700}
+.second-stat .l{font-size:12px;color:#5f6368;margin-top:3px}
+.status-second{display:inline-block;padding:4px 8px;border-radius:999px;font-size:12px;font-weight:700}
+.status-done{background:#e6f4ea;color:#137333}
+.status-pending{background:#fff4ce;color:#8a5a00}
+@media(max-width:800px){.second-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.footer{margin-top:18px;color:#5f6368;font-size:12px}@media(max-width:900px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.workshop-grid{grid-template-columns:1fr}.top{flex-direction:column}}@media(max-width:520px){.shell{padding:12px}.card{padding:16px}.stats{grid-template-columns:1fr 1fr}.stat .n{font-size:22px}}
 </style>
 </head>
 <body>
@@ -40,6 +53,52 @@
     </div>
 
     <div id="panelMsg"></div>
+
+    <div class="mode-switch" aria-label="Vista del panel">
+      <button id="modeFirstBtn" class="mode-btn active" type="button">Primera vuelta / General</button>
+      <button id="modeSecondBtn" class="mode-btn" type="button">Segunda vuelta</button>
+    </div>
+
+    <div id="secondRoundSection" class="section hidden">
+      <div class="second-panel">
+        <h2 style="margin-top:0">Control de segunda vuelta</h2>
+        <div class="small">Solo se muestran los alumnos autorizados en la lista de Segunda Vuelta, excluyendo los marcados en morado.</div>
+        <div id="secondStats" class="second-stats"></div>
+
+        <h3>Control por taller</h3>
+        <div class="toolbar">
+          <select id="secondStatusFilter">
+            <option value="all">Todos los talleres</option>
+            <option value="available">Con cupo</option>
+            <option value="full">Llenos</option>
+          </select>
+          <input id="secondWorkshopSearch" placeholder="Buscar taller...">
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Taller</th><th>2ª vuelta</th><th>Cupo</th><th>Disponibles</th><th>Estado</th></tr></thead>
+            <tbody id="secondWorkshopTable"></tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:24px">Alumnos de segunda vuelta</h3>
+        <div class="toolbar">
+          <select id="secondStudentStatus">
+            <option value="all">Todos</option>
+            <option value="pending">Pendientes</option>
+            <option value="done">Ya registraron</option>
+          </select>
+          <input id="secondStudentSearch" placeholder="Buscar por nombre, matrícula o grupo...">
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>Matrícula</th><th>Alumno</th><th>Grupo</th><th>1er taller</th><th>2º taller</th><th>Estado</th></tr></thead>
+            <tbody id="secondStudentTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
     <div id="stats" class="stats"></div>
 
     <div class="section">
@@ -107,6 +166,7 @@ const TOKEN_KEY = 'paraescolares_admin_token';
 let token = sessionStorage.getItem(TOKEN_KEY) || '';
 let data = null;
 let selectedWorkshopId = '';
+let panelMode = 'first';
 
 const $ = id => document.getElementById(id);
 
@@ -158,12 +218,97 @@ async function cargarDatos(){
     data = r;
     showMessage('panelMsg','Información actualizada.','success');
     renderStats();
+    renderSecondRound();
     renderWorkshops();
     renderDetail();
+    aplicarModoPanel();
     $('updatedAt').textContent = 'Última actualización: ' + new Date(r.generado).toLocaleString('es-MX');
   } catch(e) {
     showMessage('panelMsg', e.message, 'error');
   } finally { $('refreshBtn').disabled = false; }
+}
+
+
+function aplicarModoPanel(){
+  const second = panelMode === 'second';
+  $('secondRoundSection').classList.toggle('hidden', !second);
+  $('stats').classList.toggle('hidden', second);
+  $('workshops').parentElement.classList.toggle('hidden', second);
+  $('detailSection').classList.add('hidden');
+  $('studentSearchSection').classList.add('hidden');
+  $('unregisteredSection').classList.add('hidden');
+  $('modeFirstBtn').classList.toggle('active', !second);
+  $('modeSecondBtn').classList.toggle('active', second);
+  if(second) renderSecondRound();
+}
+
+function renderSecondRound(){
+  const s = data?.segundaVuelta;
+  if(!s){
+    $('secondStats').innerHTML = '<div class="msg error">El backend actual no devolvió datos de segunda vuelta. Publica la versión unificada del Apps Script.</div>';
+    return;
+  }
+
+  const stats = [
+    ['Alumnos autorizados', s.autorizados],
+    ['Ya eligieron segundo taller', s.registradosSegundoTaller],
+    ['Pendientes', s.pendientesSegundoTaller],
+    ['Segundos talleres registrados', s.totalSegundosTalleres]
+  ];
+  $('secondStats').innerHTML = stats.map(x =>
+    '<div class="second-stat"><div class="n">'+escapeHtml(x[1])+'</div><div class="l">'+escapeHtml(x[0])+'</div></div>'
+  ).join('');
+
+  const status = $('secondStatusFilter').value;
+  const q = $('secondWorkshopSearch').value.trim().toLowerCase();
+  const workshops = (s.talleres || []).filter(w => {
+    if(status === 'available' && w.lleno) return false;
+    if(status === 'full' && !w.lleno) return false;
+    return !q || w.name.toLowerCase().includes(q) || w.id.toLowerCase().includes(q);
+  });
+
+  $('secondWorkshopTable').innerHTML = workshops.length ? workshops.map(w => {
+    const available = w.disponibles === null ? 'Ilimitado' : w.disponibles;
+    const statusHtml = w.lleno
+      ? '<span class="badge full">LLENO</span>'
+      : '<span class="badge ok">CON CUPO</span>';
+    let gender = '';
+    if(w.porGenero){
+      gender = Object.entries(w.porGenero)
+        .map(([g,x]) => escapeHtml(g)+': '+x.disponibles+' libres')
+        .join(' · ');
+    }
+    return '<tr>'+
+      '<td><strong>'+escapeHtml(w.name)+'</strong><div class="small">'+escapeHtml(w.day)+' · '+escapeHtml(w.time)+(gender?' · '+gender:'')+'</div></td>'+
+      '<td><strong>'+w.inscritosSegundaVuelta+'</strong></td>'+
+      '<td>'+escapeHtml(w.cupo)+'</td>'+
+      '<td>'+escapeHtml(available)+'</td>'+
+      '<td>'+statusHtml+'</td>'+
+      '</tr>';
+  }).join('') : '<tr><td colspan="5" class="empty">No hay talleres que coincidan con el filtro.</td></tr>';
+
+  const studentStatus = $('secondStudentStatus').value;
+  const sq = $('secondStudentSearch').value.trim().toLowerCase();
+  const students = (s.alumnos || []).filter(a => {
+    if(studentStatus === 'pending' && a.registradoSegundo) return false;
+    if(studentStatus === 'done' && !a.registradoSegundo) return false;
+    const hay = (a.nombre+' '+a.matricula+' '+a.grupo+' '+a.genero+' '+a.primerTaller+' '+a.segundoTaller).toLowerCase();
+    return !sq || hay.includes(sq);
+  });
+
+  $('secondStudentTable').innerHTML = students.length ? students.map((a,i) =>
+    '<tr>'+
+    '<td>'+(i+1)+'</td>'+
+    '<td>'+escapeHtml(a.matricula)+'</td>'+
+    '<td>'+escapeHtml(a.nombre)+'</td>'+
+    '<td>'+escapeHtml(a.grupo)+'</td>'+
+    '<td>'+escapeHtml(a.primerTaller || '—')+'</td>'+
+    '<td>'+escapeHtml(a.segundoTaller || '—')+'</td>'+
+    '<td>'+ (a.registradoSegundo
+      ? '<span class="status-second status-done">Registrado</span>'
+      : '<span class="status-second status-pending">Pendiente</span>') +
+    '</td></tr>'
+  ).join('') : '<tr><td colspan="7" class="empty">No hay alumnos que coincidan con el filtro.</td></tr>';
 }
 
 function renderStats(){
@@ -312,6 +457,14 @@ $('logoutBtn').addEventListener('click',logout);
 $('statusFilter').addEventListener('change',renderWorkshops);
 $('workshopSearch').addEventListener('input',renderWorkshops);
 $('studentSearch').addEventListener('input',renderDetail);
+
+
+$('modeFirstBtn').addEventListener('click',()=>{panelMode='first';aplicarModoPanel();});
+$('modeSecondBtn').addEventListener('click',()=>{panelMode='second';aplicarModoPanel();});
+$('secondStatusFilter').addEventListener('change',renderSecondRound);
+$('secondWorkshopSearch').addEventListener('input',renderSecondRound);
+$('secondStudentStatus').addEventListener('change',renderSecondRound);
+$('secondStudentSearch').addEventListener('input',renderSecondRound);
 
 if(token){$('loginView').classList.add('hidden');$('panelView').classList.remove('hidden');cargarDatos();}
 </script>
