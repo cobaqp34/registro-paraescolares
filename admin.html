@@ -92,7 +92,7 @@
         </div>
         <div class="table-wrap">
           <table>
-            <thead><tr><th>#</th><th>Matrícula</th><th>Alumno</th><th>Grupo</th><th>1er taller</th><th>2º taller</th><th>Estado</th></tr></thead>
+            <thead><tr><th>#</th><th>Matrícula</th><th>Alumno</th><th>Grupo</th><th>1er taller</th><th>2º taller</th><th>3º taller</th><th>Estado</th></tr></thead>
             <tbody id="secondStudentTable"></tbody>
           </table>
         </div>
@@ -253,7 +253,8 @@ function renderSecondRound(){
     ['Alumnos autorizados', s.autorizados],
     ['Ya eligieron segundo taller', s.registradosSegundoTaller],
     ['Pendientes', s.pendientesSegundoTaller],
-    ['Segundos talleres registrados', s.totalSegundosTalleres]
+    ['Segundos talleres registrados', s.totalSegundosTalleres],
+    ['Tercer taller (excepción)', s.registradosTercerTaller || 0]
   ];
   $('secondStats').innerHTML = stats.map(x =>
     '<div class="second-stat"><div class="n">'+escapeHtml(x[1])+'</div><div class="l">'+escapeHtml(x[0])+'</div></div>'
@@ -304,11 +305,14 @@ function renderSecondRound(){
     '<td>'+escapeHtml(a.grupo)+'</td>'+
     '<td>'+escapeHtml(a.primerTaller || '—')+'</td>'+
     '<td>'+escapeHtml(a.segundoTaller || '—')+'</td>'+
-    '<td>'+ (a.registradoSegundo
-      ? '<span class="status-second status-done">Registrado</span>'
-      : '<span class="status-second status-pending">Pendiente</span>') +
+    '<td>'+escapeHtml(a.tercerTaller || '—')+'</td>'+
+    '<td>'+ (a.registradoTercero
+      ? '<span class="status-second status-done">3º registrado</span>'
+      : (a.registradoSegundo
+          ? '<span class="status-second status-done">2º registrado</span>'
+          : '<span class="status-second status-pending">Pendiente</span>')) +
     '</td></tr>'
-  ).join('') : '<tr><td colspan="7" class="empty">No hay alumnos que coincidan con el filtro.</td></tr>';
+  ).join('') : '<tr><td colspan="8" class="empty">No hay alumnos que coincidan con el filtro.</td></tr>';
 }
 
 function renderStats(){
