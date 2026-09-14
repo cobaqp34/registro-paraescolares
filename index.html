@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Segunda Vuelta - Registro a Talleres Paraescolares 2026-B</title>
+  <title>Registro a Talleres Paraescolares Semestre 2026-B</title>
 
   <script>
     (function() {
@@ -576,8 +576,8 @@
 <body>
   <div class="page-shell">
   <main class="container">
-    <h1>Segunda Vuelta - Registro a Talleres Paraescolares 2026-B</h1>
-    <p class="description">Ingresa tu matricula para consultar tus datos y elegir un segundo taller disponible.</p>
+    <h1>Registro a Talleres Paraescolares Semestre 2026-B</h1>
+    <p class="description">Ingresa tu matricula para consultar tus datos y elegir un taller disponible.</p>
 
     <label for="idInput">Matricula</label>
 
@@ -619,8 +619,9 @@
     let talleresActuales = [];
     let registroActual = null;
     let registrosActuales = [];
-    let segundaVueltaHabilitada = false;
-    let puedeRegistrarMas = false;
+    let permiteDobleRegistro = false;
+    let puedeRegistrarMas = true;
+    const TERCER_TALLER_STUDENTS = ['263410036'];
 
     // URL de la Web App de Apps Script que funciona como backend/API.
     const API_URL = 'https://script.google.com/macros/s/AKfycbyM1h54RdRc-73C4s6jz_4WmRSmlC6wuc10046BxCeiZD9F1pbZ_aLKDpMU5YeHEZvZ/exec';
@@ -696,6 +697,11 @@
       );
     }
 
+    function esAlumnoTercerTaller() {
+      const matricula = String(alumnoActual?.matricula || '').trim();
+      return TERCER_TALLER_STUDENTS.includes(matricula);
+    }
+
     function procesarRespuesta(response) {
       setLoading('btnConsultar', false, 'Consultar');
 
@@ -713,8 +719,18 @@
       talleresActuales = response.talleres || [];
       registroActual = response.registro || null;
       registrosActuales = response.registros || (registroActual ? [registroActual] : []);
-      segundaVueltaHabilitada = Boolean(response.segundaVueltaHabilitada);
-      puedeRegistrarMas = Boolean(response.puedeRegistrarMas);
+      const matriculaConsultada = String(alumnoActual?.matricula || '').trim();
+      const esEscoltaYPaz = [
+        '263410058', '263410046', '263410040',
+        '263410036', '263410044', '263410057'
+      ].includes(matriculaConsultada);
+
+      permiteDobleRegistro = Boolean(response.permiteDobleRegistro) || esEscoltaYPaz;
+      puedeRegistrarMas = esAlumnoTercerTaller()
+        ? registrosActuales.length < 3
+        : (permiteDobleRegistro
+            ? registrosActuales.length < 2
+            : response.puedeRegistrarMas !== false);
 
       mostrarDatos(response.data);
       mostrarTalleres();
@@ -755,54 +771,42 @@
       notice.innerHTML = '';
       list.innerHTML = '';
 
-      if (!segundaVueltaHabilitada) {
-        notice.innerHTML = `
-          <div class="message error">
-            Esta matricula no esta habilitada para la segunda vuelta.
-          </div>
-        `;
-        controls.classList.add('hidden');
-        return;
-      }
-
       if (registrosActuales.length) {
         const detalle = registrosActuales
           .map(reg => `${escapeHtml(reg.taller)} (${escapeHtml(reg.dia)} ${escapeHtml(reg.horario)})`)
           .join('<br>');
 
+        const encabezado = esAlumnoTercerTaller()
+          ? `Tienes ${registrosActuales.length} de 3 talleres registrados:`
+          : (registrosActuales.length === 1 ? 'Ya tienes registro en:' : 'Ya tienes registros en:');
         notice.innerHTML = `
           <div class="message success">
-            <strong>Registro actual:</strong><br>
-            ${detalle}<br><br>
-            Puedes seleccionar <strong>un segundo taller</strong> de los disponibles.
+            ${encabezado}<br>
+            ${detalle}
           </div>
         `;
       }
 
       if (!puedeRegistrarMas) {
         controls.classList.add('hidden');
-        list.innerHTML = `
-          <div class="message info">
-            Ya cuentas con dos talleres registrados o no tienes un registro previo que pueda complementarse.
-          </div>
-        `;
+        validarSeleccion();
         return;
       }
 
       controls.classList.remove('hidden');
 
       const talleresDisponibles = talleresActuales.filter(
-        taller => taller.eligible && taller.cupoDisponible && !taller.yaRegistrado
+        taller => taller.eligible && !taller.yaRegistrado
       );
 
       if (!talleresDisponibles.length) {
         list.innerHTML = `
           <div class="message info">
-            No hay talleres adicionales disponibles para tu grupo en este momento.
-            Si alguno de tus talleres autorizados esta lleno, no podras seleccionarlo.
+            No hay talleres adicionales disponibles para tu registro.
           </div>
         `;
         controls.classList.add('hidden');
+        validarSeleccion();
         return;
       }
 
@@ -813,6 +817,7 @@
           </div>
         `;
         controls.classList.add('hidden');
+        validarSeleccion();
         return;
       }
 
@@ -832,6 +837,13 @@
         const title = document.createElement('div');
         title.className = 'workshop-title';
         title.textContent = taller.name;
+
+        if (taller.mandatory) {
+          const badge = document.createElement('span');
+          badge.className = 'badge';
+          badge.textContent = 'Obligatorio';
+          title.appendChild(badge);
+        }
 
         const meta = document.createElement('div');
         meta.className = 'workshop-meta';
@@ -890,8 +902,32 @@
           registrosActuales = response.registros || registrosActuales.concat(
             response.registro ? [response.registro] : []
           );
-          puedeRegistrarMas = Boolean(response.puedeRegistrarMas);
 
+          if (selected) {
+            const tallerLocal = talleresActuales.find(t => t.id === selected.id);
+            if (tallerLocal) {
+              tallerLocal.yaRegistrado = true;
+              tallerLocal.selectable = false;
+            }
+          }
+
+          // Para los alumnos autorizados de 1.2, siempre permitimos hasta 2
+          // registros (Escolta + Club de Paz 1.2). No ocultar el segundo taller
+          // después del primer registro.
+          const matriculaActual = String(alumnoActual?.matricula || '').trim();
+          const esEscoltaYPaz = [
+            '263410058', '263410046', '263410040',
+            '263410036', '263410044', '263410057'
+          ].includes(matriculaActual);
+
+          permiteDobleRegistro = permiteDobleRegistro || esEscoltaYPaz;
+          puedeRegistrarMas = esAlumnoTercerTaller()
+            ? registrosActuales.length < 3
+            : (permiteDobleRegistro
+                ? registrosActuales.length < 2
+                : registrosActuales.length < 1);
+
+          // Si queda un taller permitido sin registrar, volver a mostrarlo.
           mostrarMensaje(response.message || 'Registro realizado.', 'success');
           mostrarTalleres();
         },
@@ -963,8 +999,8 @@
       talleresActuales = [];
       registroActual = null;
       registrosActuales = [];
-      segundaVueltaHabilitada = false;
-      puedeRegistrarMas = false;
+      permiteDobleRegistro = false;
+      puedeRegistrarMas = true;
       document.getElementById('status').innerHTML = '';
       document.getElementById('results').classList.add('hidden');
       document.getElementById('registration').classList.add('hidden');
