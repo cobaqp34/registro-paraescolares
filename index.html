@@ -623,6 +623,8 @@
     let puedeRegistrarMas = true;
     const TERCER_TALLER_STUDENTS = ['263410036', '263410040', '263410057'];
 
+const SEGUNDA_VUELTA_DESHABILITADOS = ['253410049'];
+
     // URL de la Web App de Apps Script que funciona como backend/API.
     const API_URL = 'https://script.google.com/macros/s/AKfycbyM1h54RdRc-73C4s6jz_4WmRSmlC6wuc10046BxCeiZD9F1pbZ_aLKDpMU5YeHEZvZ/exec';
     let jsonpCounter = 0;
@@ -762,6 +764,12 @@
     }
 
     function mostrarTalleres() {
+  const matriculaActual = String(alumnoActual?.matricula || '').trim();
+  if (SEGUNDA_VUELTA_DESHABILITADOS.includes(matriculaActual)) {
+    // El alumno puede consultar sus datos, pero no participar en segunda vuelta.
+    return;
+  }
+
       const section = document.getElementById('registration');
       const notice = document.getElementById('registeredNotice');
       const list = document.getElementById('workshopList');
