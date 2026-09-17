@@ -728,11 +728,9 @@ const SEGUNDA_VUELTA_DESHABILITADOS = ['253410049'];
       ].includes(matriculaConsultada);
 
       permiteDobleRegistro = Boolean(response.permiteDobleRegistro) || esEscoltaYPaz;
-      puedeRegistrarMas = esAlumnoTercerTaller()
-        ? registrosActuales.length < 3
-        : (permiteDobleRegistro
-            ? registrosActuales.length < 2
-            : response.puedeRegistrarMas !== false);
+      // O backend agora é a fonte de verdade das exceções.
+      // Isso permite MAX_TALLERES=3 sem manter listas de exceções no frontend.
+      puedeRegistrarMas = response.puedeRegistrarMas !== false;
 
       mostrarDatos(response.data);
       mostrarTalleres();
@@ -929,11 +927,8 @@ const SEGUNDA_VUELTA_DESHABILITADOS = ['253410049'];
           ].includes(matriculaActual);
 
           permiteDobleRegistro = permiteDobleRegistro || esEscoltaYPaz;
-          puedeRegistrarMas = esAlumnoTercerTaller()
-            ? registrosActuales.length < 3
-            : (permiteDobleRegistro
-                ? registrosActuales.length < 2
-                : registrosActuales.length < 1);
+          // El backend devuelve el límite efectivo de talleres para esta matrícula.
+          puedeRegistrarMas = response.puedeRegistrarMas !== false;
 
           // Si queda un taller permitido sin registrar, volver a mostrarlo.
           mostrarMensaje(response.message || 'Registro realizado.', 'success');
