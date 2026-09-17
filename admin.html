@@ -3,22 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Panel Administrativo · Paraescolares 2026-B</title>
+<title>Panel administrativo · Paraescolares 2026-B</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#eef2f5;color:#202124;font-family:Arial,Helvetica,sans-serif}.shell{max-width:1200px;margin:0 auto;padding:24px}.card{background:#fff;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.08);padding:24px}.hidden{display:none!important}.login{max-width:430px;margin:8vh auto}.h1{font-size:25px;font-weight:700;margin:0 0 7px}.sub{color:#5f6368;margin-bottom:22px;line-height:1.45}label{display:block;font-weight:700;margin:0 0 7px}input,select{width:100%;padding:12px 13px;border:1px solid #cfd6dc;border-radius:6px;font-size:16px;margin-bottom:15px}.password-wrap{position:relative;margin-bottom:15px}.password-wrap input{margin-bottom:0;padding-right:48px}.toggle-password{position:absolute;right:8px;top:50%;transform:translateY(-50%);min-height:34px;width:38px;padding:0;background:transparent;color:#5f6368;font-size:18px}.toggle-password:hover{background:#f1f3f4;filter:none}button{border:0;border-radius:6px;min-height:44px;padding:0 18px;font-weight:700;font-size:15px;cursor:pointer;background:#4661e8;color:#fff}button:hover{filter:brightness(.96)}button:disabled{opacity:.6;cursor:default}.logout{background:#5f6368}.refresh{background:#188038}.danger{background:#d93025}.msg{padding:11px 13px;border-radius:6px;margin-top:14px;line-height:1.4}.error{background:#fce8e6;color:#a50e0e}.success{background:#e6f4ea;color:#0d652d}.info{background:#e8f0fe;color:#174ea6}.top{display:flex;justify-content:space-between;gap:15px;align-items:flex-start;margin-bottom:22px}.actions{display:flex;gap:8px;flex-wrap:wrap}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:22px}.stat{border:1px solid #e1e5e9;border-radius:8px;padding:16px}.stat.clickable{cursor:pointer;transition:.15s}.stat.clickable:hover{border-color:#4661e8;box-shadow:0 0 0 2px rgba(70,97,232,.08)}.stat.clickable:focus{outline:2px solid #4661e8;outline-offset:2px}.stat .n{font-size:26px;font-weight:700}.stat .l{font-size:13px;color:#5f6368;margin-top:4px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 15px}.toolbar select,.toolbar input{margin:0;max-width:280px}.table-wrap{overflow:auto;border:1px solid #e1e5e9;border-radius:8px}table{width:100%;border-collapse:collapse;min-width:780px}th,td{text-align:left;padding:11px 12px;border-bottom:1px solid #edf0f2;font-size:14px}th{background:#f8f9fa;position:sticky;top:0;z-index:1}.badge{display:inline-block;padding:4px 8px;border-radius:999px;font-size:12px;font-weight:700}.ok{background:#e6f4ea;color:#137333}.full{background:#fce8e6;color:#a50e0e}.unlimited{background:#e8f0fe;color:#174ea6}.section{margin-top:24px}.section h2{font-size:19px;margin:0 0 12px}.workshop-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.workshop{border:1px solid #dce1e6;border-radius:8px;padding:15px}.workshop.selected{border-color:#4661e8;box-shadow:0 0 0 2px rgba(70,97,232,.12)}.workshop-head{display:flex;justify-content:space-between;gap:10px}.workshop-name{font-weight:700;font-size:16px}.meta{color:#5f6368;font-size:13px;line-height:1.5;margin-top:6px}.bar{height:8px;background:#edf0f2;border-radius:99px;overflow:hidden;margin:12px 0 8px}.bar>div{height:100%;background:#4661e8}.detail{margin-top:12px}.empty{padding:18px;text-align:center;color:#5f6368}.small{font-size:12px;color:#5f6368}.student-list{max-height:500px;overflow:auto}.student-search-card{border:1px solid #dce1e6;border-radius:8px;padding:16px;background:#fff}.student-result{border:1px solid #e1e5e9;border-radius:8px;padding:14px;margin-top:12px}.student-result h3{margin:0 0 6px;font-size:17px}.student-workshop{padding:9px 0;border-bottom:1px solid #edf0f2}.student-workshop:last-child{border-bottom:0}.student-workshop strong{display:block}.search-results{max-height:420px;overflow:auto}
-.mode-switch{display:flex;gap:8px;margin:0 0 18px;flex-wrap:wrap}
-.mode-btn{background:#6b7280}
-.mode-btn.active{background:#4661e8}
-.second-panel{border:1px solid #dfe5ea;border-radius:9px;padding:18px;background:#fbfcfd}
-.second-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:12px 0 18px}
-.second-stat{border:1px solid #e1e5e9;border-radius:8px;padding:14px;background:#fff}
-.second-stat .n{font-size:25px;font-weight:700}
-.second-stat .l{font-size:12px;color:#5f6368;margin-top:3px}
-.status-second{display:inline-block;padding:4px 8px;border-radius:999px;font-size:12px;font-weight:700}
-.status-done{background:#e6f4ea;color:#137333}
-.status-pending{background:#fff4ce;color:#8a5a00}
-@media(max-width:800px){.second-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.footer{margin-top:18px;color:#5f6368;font-size:12px}@media(max-width:900px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.workshop-grid{grid-template-columns:1fr}.top{flex-direction:column}}@media(max-width:520px){.shell{padding:12px}.card{padding:16px}.stats{grid-template-columns:1fr 1fr}.stat .n{font-size:22px}}
+*{box-sizing:border-box}body{margin:0;background:#eef2f5;color:#202124;font-family:Arial,Helvetica,sans-serif;font-size:15px}.shell{max-width:1180px;margin:0 auto;padding:24px}.card{background:#fff;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.08);padding:24px}.hidden{display:none!important}.h1{font-size:25px;font-weight:700}.sub{color:#5f6368;margin-top:5px}.login{max-width:430px;margin:70px auto}label{display:block;font-weight:700;margin:14px 0 7px}input,select{width:100%;padding:11px 12px;border:1px solid #cfd6dc;border-radius:7px;font-size:15px;background:#fff}input:focus,select:focus{outline:none;border-color:#4661e8;box-shadow:0 0 0 2px rgba(70,97,232,.12)}button{border:0;border-radius:7px;padding:10px 14px;background:#4661e8;color:#fff;font-weight:700;cursor:pointer}button:hover{filter:brightness(.96)}button:disabled{opacity:.55;cursor:not-allowed}.top{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}.actions{display:flex;gap:8px;flex-wrap:wrap}.refresh{background:#188038}.logout{background:#b3261e}.mode-switch{display:flex;gap:8px;margin:20px 0 18px;flex-wrap:wrap}.mode-btn{background:#6b7280}.mode-btn.active{background:#4661e8}.section{border:1px solid #dfe5ea;border-radius:9px;padding:18px;margin-top:18px}.toolbar{display:flex;gap:10px;margin:12px 0;flex-wrap:wrap}.toolbar>*{flex:1;min-width:180px}.stats,.second-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:12px 0 18px}.stat,.second-stat{border:1px solid #e1e5e9;border-radius:8px;padding:14px;background:#fff}.stat .n,.second-stat .n{font-size:25px;font-weight:700}.stat .l,.second-stat .l{font-size:12px;color:#5f6368;margin-top:3px}.workshop-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.workshop{border:1px solid #e1e5e9;border-radius:8px;padding:14px}.workshop-name{font-weight:700;font-size:17px}.meta,.small{font-size:12px;color:#5f6368}.workshop-head{display:flex;justify-content:space-between;gap:12px}.badge{display:inline-block;padding:4px 8px;border-radius:999px;font-size:11px;font-weight:700;white-space:nowrap}.badge.ok{background:#e6f4ea;color:#137333}.badge.full{background:#fce8e6;color:#b3261e}.badge.unlimited{background:#e8f0fe;color:#1967d2}.bar{height:7px;background:#edf0f2;border-radius:99px;overflow:hidden;margin:10px 0}.bar>div{height:100%;background:#4661e8}.table-wrap{overflow:auto;border:1px solid #e1e5e9;border-radius:8px}.table-wrap table{width:100%;border-collapse:collapse;min-width:760px}.table-wrap th,.table-wrap td{padding:9px 10px;border-bottom:1px solid #edf0f2;text-align:left;vertical-align:middle}.table-wrap th{background:#f7f8fa;font-size:12px}.empty{padding:18px;text-align:center;color:#5f6368}.msg{padding:10px 12px;border-radius:7px;margin:12px 0}.msg.info{background:#e8f0fe;color:#174ea6}.msg.success{background:#e6f4ea;color:#137333}.msg.error{background:#fce8e6;color:#b3261e}.status-on{color:#137333;font-weight:700}.status-off{color:#b3261e;font-weight:700}.quick-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:10px}.quick-grid button{background:#5f6368}.quick-grid button.primary{background:#4661e8}.quick-grid button.warn{background:#b3261e}.exception-card{border:1px solid #dfe5ea;border-radius:9px;padding:16px;background:#fbfcfd;margin-top:14px}.exception-form{display:grid;grid-template-columns:1.1fr 1fr .7fr 1fr;gap:10px;align-items:end}.exception-form .wide{grid-column:span 2}.exception-help{margin-top:8px;color:#5f6368;font-size:12px}.student-results{max-height:280px;overflow:auto;margin-top:10px}.student-option{padding:9px 10px;border:1px solid #e1e5e9;border-radius:7px;margin-bottom:7px;cursor:pointer}.student-option:hover{background:#f7f8fa}.student-option.selected{border-color:#4661e8;background:#eef2ff}.status-pill{display:inline-block;padding:3px 7px;border-radius:999px;font-size:11px;font-weight:700}.status-pill.on{background:#e6f4ea;color:#137333}.status-pill.off{background:#f1f3f4;color:#5f6368}.footer{margin-top:18px;color:#5f6368;font-size:12px}@media(max-width:850px){.stats,.second-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.workshop-grid{grid-template-columns:1fr}.exception-form{grid-template-columns:1fr}.exception-form .wide{grid-column:auto}.quick-grid{grid-template-columns:1fr 1fr}.top{flex-direction:column}}@media(max-width:520px){.shell{padding:12px}.card{padding:16px}.stats,.second-stats{grid-template-columns:1fr}.quick-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -27,450 +14,132 @@
     <div class="h1">Panel administrativo</div>
     <div class="sub">Paraescolares · Semestre 2026-B</div>
     <form id="loginForm">
-      <label for="usuario">Usuario</label>
-      <input id="usuario" autocomplete="username" required>
-      <label for="contrasena">Contraseña</label>
-      <div class="password-wrap">
-        <input id="contrasena" type="password" autocomplete="current-password" required>
-        <button id="togglePassword" class="toggle-password" type="button" aria-label="Mostrar contraseña" title="Mostrar contraseña">👁</button>
-      </div>
-      <button id="loginBtn" type="submit">Iniciar sesión</button>
+      <label for="usuario">Usuario</label><input id="usuario" autocomplete="username" required>
+      <label for="contrasena">Contraseña</label><input id="contrasena" type="password" autocomplete="current-password" required>
+      <button id="loginBtn" type="submit" style="margin-top:16px;width:100%">Iniciar sesión</button>
     </form>
     <div id="loginMsg"></div>
   </div>
 
   <div id="panelView" class="card hidden">
     <div class="top">
-      <div>
-        <div class="h1">Panel de Paraescolares 2026-B</div>
-        <div class="sub" style="margin-bottom:0">Control de cupos e inscritos</div>
-      </div>
-      <div class="actions">
-        <button id="studentSearchTopBtn" type="button">Buscar alumno</button>
-        <button id="refreshBtn" class="refresh">Actualizar</button>
-        <button id="logoutBtn" class="logout">Cerrar sesión</button>
-      </div>
+      <div><div class="h1">Panel de Paraescolares 2026-B</div><div class="sub">Control de cupos, segunda vuelta y excepciones</div></div>
+      <div class="actions"><button id="refreshBtn" class="refresh">Actualizar</button><button id="logoutBtn" class="logout">Cerrar sesión</button></div>
     </div>
-
     <div id="panelMsg"></div>
 
-    <div class="mode-switch" aria-label="Vista del panel">
-      <button id="modeFirstBtn" class="mode-btn active" type="button">Primera vuelta / General</button>
-      <button id="modeSecondBtn" class="mode-btn" type="button">Segunda vuelta</button>
+    <div class="mode-switch">
+      <button id="modeGeneralBtn" class="mode-btn active">General</button>
+      <button id="modeSecondBtn" class="mode-btn">Segunda vuelta</button>
+      <button id="modeExceptionsBtn" class="mode-btn">Excepciones</button>
     </div>
 
-    <div id="secondRoundSection" class="section hidden">
-      <div class="second-panel">
-        <h2 style="margin-top:0">Control de segunda vuelta</h2>
-        <div class="small">Solo se muestran los alumnos autorizados en la lista de Segunda Vuelta, excluyendo los marcados en morado.</div>
-        <div id="secondStats" class="second-stats"></div>
-
-        <h3>Control por taller</h3>
-        <div class="toolbar">
-          <select id="secondStatusFilter">
-            <option value="all">Todos los talleres</option>
-            <option value="available">Con cupo</option>
-            <option value="full">Llenos</option>
-          </select>
-          <input id="secondWorkshopSearch" placeholder="Buscar taller...">
-        </div>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Taller</th><th>2ª vuelta</th><th>Cupo</th><th>Disponibles</th><th>Estado</th></tr></thead>
-            <tbody id="secondWorkshopTable"></tbody>
-          </table>
-        </div>
-
-        <h3 style="margin-top:24px">Alumnos de segunda vuelta</h3>
-        <div class="toolbar">
-          <select id="secondStudentStatus">
-            <option value="all">Todos</option>
-            <option value="pending">Pendientes</option>
-            <option value="done">Ya registraron</option>
-          </select>
-          <input id="secondStudentSearch" placeholder="Buscar por nombre, matrícula o grupo...">
-        </div>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>#</th><th>Matrícula</th><th>Alumno</th><th>Grupo</th><th>1er taller</th><th>2º taller</th><th>3º taller</th><th>Estado</th></tr></thead>
-            <tbody id="secondStudentTable"></tbody>
-          </table>
-        </div>
+    <section id="generalSection">
+      <div id="stats" class="stats"></div>
+      <div class="section">
+        <h2 style="margin-top:0">Talleres</h2>
+        <div class="toolbar"><select id="statusFilter"><option value="all">Todos</option><option value="available">Con cupo</option><option value="full">Llenos</option></select><input id="workshopSearch" placeholder="Buscar taller..."></div>
+        <div id="workshops" class="workshop-grid"></div>
       </div>
-    </div>
+    </section>
 
-    <div id="stats" class="stats"></div>
+    <section id="secondSection" class="section hidden">
+      <h2 style="margin-top:0">Control de segunda vuelta</h2>
+      <div class="small">Incluye alumnos autorizados por la configuración de excepciones.</div>
+      <div id="secondStats" class="second-stats"></div>
+      <div class="toolbar"><select id="secondStatusFilter"><option value="all">Todos los talleres</option><option value="available">Con cupo</option><option value="full">Llenos</option></select><input id="secondWorkshopSearch" placeholder="Buscar taller..."></div>
+      <div class="table-wrap"><table><thead><tr><th>Taller</th><th>2ª vuelta</th><th>Cupo</th><th>Disponibles</th><th>Estado</th></tr></thead><tbody id="secondWorkshopTable"></tbody></table></div>
+      <h3>Alumnos de segunda vuelta</h3>
+      <div class="toolbar"><select id="secondStudentStatus"><option value="all">Todos</option><option value="pending">Pendientes</option><option value="done">Ya registraron</option></select><input id="secondStudentSearch" placeholder="Buscar alumno..."></div>
+      <div class="table-wrap"><table><thead><tr><th>Matrícula</th><th>Alumno</th><th>Grupo</th><th>1er taller</th><th>2º taller</th><th>3er taller</th><th>Estado</th></tr></thead><tbody id="secondStudentTable"></tbody></table></div>
+    </section>
 
-    <div class="section">
-      <h2>Talleres</h2>
-      <div class="toolbar">
-        <select id="statusFilter">
-          <option value="all">Todos los talleres</option>
-          <option value="available">Con cupo</option>
-          <option value="full">Llenos</option>
-        </select>
-        <input id="workshopSearch" placeholder="Buscar taller...">
-      </div>
-      <div id="workshops" class="workshop-grid"></div>
-    </div>
+    <section id="exceptionsSection" class="section hidden">
+      <h2 style="margin-top:0">Administración de excepciones</h2>
+      <div class="small">Aquí puedes habilitar o deshabilitar alumnos sin modificar el código del sistema. Los cambios se guardan en la hoja <strong>EXCEPCIONES</strong>.</div>
 
-    <div id="detailSection" class="section hidden">
-      <h2 id="detailTitle">Inscritos</h2>
-      <div id="detailMeta" class="small"></div>
-      <div class="toolbar" style="margin-top:12px">
-        <input id="studentSearch" placeholder="Buscar por nombre, matrícula o grupo...">
-      </div>
-      <div class="table-wrap student-list">
-        <table>
-          <thead><tr><th>#</th><th>Matrícula</th><th>Alumno</th><th>Grupo</th><th>Género</th><th>Fecha</th></tr></thead>
-          <tbody id="studentTable"></tbody>
-        </table>
-      </div>
-    </div>
-
-    <div id="studentSearchSection" class="section hidden">
-      <h2>Buscar alumno</h2>
-      <div class="student-search-card">
-        <div class="small" style="margin-bottom:10px">Busca por matrícula, nombre o grupo para consultar sus talleres inscritos.</div>
-        <div class="toolbar">
-          <input id="adminStudentSearch" placeholder="Matrícula, nombre o grupo..." autocomplete="off">
-          <button id="clearStudentSearch" class="logout" type="button">Limpiar</button>
-          <button id="closeStudentSearch" class="logout" type="button">Cerrar búsqueda</button>
-        </div>
-        <div id="adminStudentResults" class="search-results">
-          <div class="empty">Escribe al menos 2 caracteres para buscar.</div>
+      <div class="exception-card">
+        <h3 style="margin-top:0">Control rápido por alumno</h3>
+        <label for="studentSearchException">Buscar alumno</label>
+        <input id="studentSearchException" placeholder="Matrícula o nombre...">
+        <div id="studentResults" class="student-results"></div>
+        <div id="selectedStudentInfo" class="small" style="margin-top:10px"></div>
+        <div class="quick-grid">
+          <button id="quickSecond">Habilitar 2ª vuelta</button>
+          <button id="quickFirstSecond" class="primary">Permitir primer registro en 2ª vuelta</button>
+          <button id="quickThree">Permitir 3 talleres</button>
+          <button id="quickBlock" class="warn">Bloquear 2ª vuelta</button>
         </div>
       </div>
-    </div>
 
-    <div id="unregisteredSection" class="section hidden">
-      <h2>Alumnos sin inscripción a taller</h2>
-      <div class="small" style="margin-bottom:12px">Lista de alumnos que todavía no tienen ningún taller registrado.</div>
-      <div class="toolbar">
-        <input id="unregisteredSearch" placeholder="Buscar por nombre, matrícula o grupo...">
+      <div class="exception-card">
+        <h3 style="margin-top:0">Nueva / modificar excepción</h3>
+        <form id="exceptionForm" class="exception-form">
+          <div><label for="exMatricula">Matrícula</label><input id="exMatricula" required></div>
+          <div><label for="exTipo">Tipo</label><select id="exTipo"></select></div>
+          <div><label for="exValor">Valor</label><input id="exValor" placeholder="Ej. 3"></div>
+          <div><label for="exTaller">Taller ID</label><input id="exTaller" placeholder="Opcional"></div>
+          <div class="wide"><label for="exObservacion">Observación</label><input id="exObservacion" placeholder="Motivo o nota administrativa"></div>
+          <div><label for="exActivo">Estado</label><select id="exActivo"><option value="TRUE">Activo</option><option value="FALSE">Inactivo</option></select></div>
+          <div><button type="submit">Guardar excepción</button></div>
+        </form>
+        <div class="exception-help">Tipos: SEGUNDA_VUELTA, BLOQUEAR_SEGUNDA, PRIMER_REGISTRO_SEGUNDA, MAX_TALLERES, SOLO_ESCOLTA y ESCOLTA_Y_PAZ.</div>
       </div>
-      <div class="table-wrap student-list">
-        <table>
-          <thead><tr><th>#</th><th>Matrícula</th><th>Alumno</th><th>Grupo</th><th>Género</th></tr></thead>
-          <tbody id="unregisteredTable"></tbody>
-        </table>
+
+      <div class="exception-card">
+        <div class="toolbar"><input id="exceptionSearch" placeholder="Filtrar por matrícula, alumno o tipo..."><select id="exceptionStatus"><option value="all">Todos</option><option value="active">Activos</option><option value="inactive">Inactivos</option></select></div>
+        <div class="table-wrap"><table><thead><tr><th>Matrícula</th><th>Alumno</th><th>Tipo</th><th>Valor</th><th>Observación</th><th>Estado</th><th>Acción</th></tr></thead><tbody id="exceptionTable"></tbody></table></div>
       </div>
-    </div>
+    </section>
 
     <div class="footer" id="updatedAt"></div>
   </div>
 </div>
 <script>
-const API_URL = 'https://script.google.com/macros/s/AKfycbyM1h54RdRc-73C4s6jz_4WmRSmlC6wuc10046BxCeiZD9F1pbZ_aLKDpMU5YeHEZvZ/exec';
-const TOKEN_KEY = 'paraescolares_admin_token';
-let token = sessionStorage.getItem(TOKEN_KEY) || '';
-let data = null;
-let selectedWorkshopId = '';
-let panelMode = 'first';
-
-const $ = id => document.getElementById(id);
-
-function jsonp(params) {
-  return new Promise((resolve, reject) => {
-    const callback = '__admin_cb_' + Date.now() + '_' + Math.floor(Math.random()*100000);
-    const script = document.createElement('script');
-    const query = new URLSearchParams({...params, callback});
-    const timer = setTimeout(() => { cleanup(); reject(new Error('Tiempo de espera agotado.')); }, 15000);
-    function cleanup(){clearTimeout(timer);script.remove();delete window[callback];}
-    window[callback] = response => { cleanup(); resolve(response); };
-    script.onerror = () => { cleanup(); reject(new Error('No fue posible conectar con el servidor.')); };
-    script.src = API_URL + '?' + query.toString();
-    document.body.appendChild(script);
-  });
+const API_URL='https://script.google.com/macros/s/AKfycbyM1h54RdRc-73C4s6jz_4WmRSmlC6wuc10046BxCeiZD9F1pbZ_aLKDpMU5YeHEZvZ/exec';
+const TOKEN_KEY='paraescolares_admin_token';
+let token=sessionStorage.getItem(TOKEN_KEY)||'';
+let data=null;
+let exceptionData=null;
+let selectedStudent=null;
+let panelMode='general';
+const $=id=>document.getElementById(id);
+function jsonp(params){return new Promise((resolve,reject)=>{const callback='__admin_cb_'+Date.now()+'_'+Math.floor(Math.random()*100000);const script=document.createElement('script');const query=new URLSearchParams({...params,callback});const timer=setTimeout(()=>{cleanup();reject(new Error('Tiempo de espera agotado.'));},15000);function cleanup(){clearTimeout(timer);script.remove();delete window[callback]}window[callback]=r=>{cleanup();resolve(r)};script.onerror=()=>{cleanup();reject(new Error('No fue posible conectar con el servidor.'))};script.src=API_URL+'?'+query.toString();document.body.appendChild(script)})}
+function escapeHtml(v){return String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+function showMessage(el,text,type='info'){$(el).innerHTML=text?'<div class="msg '+type+'">'+escapeHtml(text)+'</div>':''}
+async function login(u,p){$('loginBtn').disabled=true;showMessage('loginMsg','Validando credenciales...');try{const r=await jsonp({action:'adminlogin',usuario:u,contrasena:p});if(!r.ok)throw new Error(r.message||'No fue posible iniciar sesión.');token=r.token;sessionStorage.setItem(TOKEN_KEY,token);$('loginView').classList.add('hidden');$('panelView').classList.remove('hidden');await cargarTodo()}catch(e){showMessage('loginMsg',e.message,'error')}finally{$('loginBtn').disabled=false}}
+async function cargarTodo(){if(!token){mostrarLogin();return}$('refreshBtn').disabled=true;showMessage('panelMsg','Actualizando información...');try{const r=await jsonp({action:'admindata',token});if(!r.ok){if((r.message||'').toLowerCase().includes('sesion')){cerrarSesion();return}throw new Error(r.message||'No fue posible cargar el panel.')}data=r;await cargarExcepciones();renderGeneral();renderSecond();aplicarModo();$('updatedAt').textContent='Última actualización: '+new Date(r.generado).toLocaleString('es-MX');showMessage('panelMsg','Información actualizada.','success')}catch(e){showMessage('panelMsg',e.message,'error')}finally{$('refreshBtn').disabled=false}}
+async function cargarExcepciones(){const r=await jsonp({action:'adminexcepciones',token});if(!r.ok)throw new Error(r.message||'No fue posible cargar las excepciones.');exceptionData=r;const select=$('exTipo');select.innerHTML=(r.tipos||[]).map(t=>'<option value="'+escapeHtml(t)+'">'+escapeHtml(t)+'</option>').join('');renderExceptions()}
+function cerrarSesion(){sessionStorage.removeItem(TOKEN_KEY);token='';data=null;exceptionData=null;selectedStudent=null;$('panelView').classList.add('hidden');$('loginView').classList.remove('hidden');$('usuario').focus()}
+function mostrarLogin(){ $('panelView').classList.add('hidden');$('loginView').classList.remove('hidden') }
+function aplicarModo(){const general=panelMode==='general',second=panelMode==='second',ex=panelMode==='exceptions';$('generalSection').classList.toggle('hidden',!general);$('secondSection').classList.toggle('hidden',!second);$('exceptionsSection').classList.toggle('hidden',!ex);$('modeGeneralBtn').classList.toggle('active',general);$('modeSecondBtn').classList.toggle('active',second);$('modeExceptionsBtn').classList.toggle('active',ex);if(ex)renderExceptions();if(second)renderSecond()}
+function renderGeneral(){const s=data?.resumen||{};const items=[['Alumnos inscritos',s.alumnosInscritos??s.alumnos??0],['Sin inscripción',s.alumnosSinInscripcion??0],['Inscripciones',s.inscripciones??0],['Talleres',s.talleres??0]];$('stats').innerHTML=items.map(x=>'<div class="stat"><div class="n">'+escapeHtml(x[1])+'</div><div class="l">'+escapeHtml(x[0])+'</div></div>').join('');renderWorkshops()}
+function renderWorkshops(){const status=$('statusFilter').value,q=$('workshopSearch').value.trim().toLowerCase();const list=(data?.talleres||[]).filter(w=>(status==='all'||(status==='available'&&!w.lleno)||(status==='full'&&w.lleno))&&(!q||w.name.toLowerCase().includes(q)||w.id.toLowerCase().includes(q)));$('workshops').innerHTML=list.length?list.map(w=>{const p=w.quotaType==='unlimited'?0:(w.porcentaje||0),badge=w.quotaType==='unlimited'?'<span class="badge unlimited">ILIMITADO</span>':w.lleno?'<span class="badge full">LLENO</span>':'<span class="badge ok">CON CUPO</span>';return '<div class="workshop"><div class="workshop-head"><div><div class="workshop-name">'+escapeHtml(w.name)+'</div><div class="meta">'+escapeHtml(w.day)+' · '+escapeHtml(w.time)+'<br>Cupo: '+escapeHtml(w.cupo)+' · Inscritos: '+w.inscritos+' · Disponibles: '+escapeHtml(w.disponibles===null?'Ilimitado':w.disponibles)+'</div></div>'+badge+'</div><div class="bar"><div style="width:'+p+'%"></div></div><div class="meta">Ocupación: '+(w.quotaType==='unlimited'?'Sin límite':p+'%')+'</div></div>'}).join(''):'<div class="empty">No hay talleres que coincidan.</div>'}
+function renderSecond(){const s=data?.segundaVuelta;if(!s){$('secondStats').innerHTML='<div class="msg error">No hay datos de segunda vuelta.</div>';return}const stats=[['Alumnos autorizados',s.autorizados],['Ya eligieron segundo',s.registradosSegundoTaller],['Pendientes',s.pendientesSegundoTaller],['Terceros registrados',s.registradosTercerTaller||0]];$('secondStats').innerHTML=stats.map(x=>'<div class="second-stat"><div class="n">'+escapeHtml(x[1])+'</div><div class="l">'+escapeHtml(x[0])+'</div></div>').join('');const st=$('secondStatusFilter').value,q=$('secondWorkshopSearch').value.trim().toLowerCase();const ws=(s.talleres||[]).filter(w=>(st==='all'||(st==='available'&&!w.lleno)||(st==='full'&&w.lleno))&&(!q||w.name.toLowerCase().includes(q)||w.id.toLowerCase().includes(q)));$('secondWorkshopTable').innerHTML=ws.map(w=>'<tr><td><strong>'+escapeHtml(w.name)+'</strong><div class="small">'+escapeHtml(w.day)+' · '+escapeHtml(w.time)+'</div></td><td>'+w.inscritosSegundaVuelta+'</td><td>'+escapeHtml(w.cupo)+'</td><td>'+escapeHtml(w.disponibles===null?'Ilimitado':w.disponibles)+'</td><td>'+(w.lleno?'<span class="badge full">LLENO</span>':'<span class="badge ok">CON CUPO</span>')+'</td></tr>').join('')||'<tr><td colspan="5" class="empty">Sin resultados.</td></tr>';
+const ss=$('secondStudentStatus').value,sq=$('secondStudentSearch').value.trim().toLowerCase();const students=(s.alumnos||[]).filter(a=>(ss==='all'||(ss==='pending'&&!a.registradoSegundo)||(ss==='done'&&a.registradoSegundo))&&(!sq||(a.nombre+' '+a.matricula+' '+a.grupo).toLowerCase().includes(sq)));$('secondStudentTable').innerHTML=students.map(a=>'<tr><td>'+escapeHtml(a.matricula)+'</td><td>'+escapeHtml(a.nombre)+'</td><td>'+escapeHtml(a.grupo)+'</td><td>'+escapeHtml(a.primerTaller||'—')+'</td><td>'+escapeHtml(a.segundoTaller||'—')+'</td><td>'+escapeHtml(a.tercerTaller||'—')+'</td><td>'+(a.registradoSegundo?'<span class="status-pill on">Registrado</span>':'<span class="status-pill off">Pendiente</span>')+'</td></tr>').join('')||'<tr><td colspan="7" class="empty">Sin resultados.</td></tr>'}
+function allStudents(){const map=new Map();[...(data?.alumnos||[]),...(data?.alumnosSinInscripcion||[])].forEach(a=>{const id=String(a.matricula||'').trim();if(id&&!map.has(id))map.set(id,a)});return [...map.values()]}
+function renderStudentSearch(){const q=$('studentSearchException').value.trim().toLowerCase();const rows=allStudents().filter(a=>!q||(a.nombre+' '+a.matricula+' '+a.grupo).toLowerCase().includes(q)).slice(0,30);$('studentResults').innerHTML=rows.length?rows.map(a=>'<div class="student-option '+(selectedStudent?.matricula===a.matricula?'selected':'')+'" onclick="selectStudent(\''+String(a.matricula).replace(/'/g,"\\'")+'\')"><strong>'+escapeHtml(a.nombre)+'</strong><div class="small">'+escapeHtml(a.matricula)+' · Grupo '+escapeHtml(a.grupo)+'</div></div>').join(''):'<div class="empty">No se encontraron alumnos.</div>'}
+function selectStudent(id){selectedStudent=allStudents().find(a=>a.matricula===id)||null;if(selectedStudent){$('exMatricula').value=selectedStudent.matricula;$('selectedStudentInfo').textContent=selectedStudent.nombre+' · Grupo '+selectedStudent.grupo+' · '+(selectedStudent.registros?.length||0)+' talleres registrados';}renderStudentSearch()}
+function renderExceptions(){if(!exceptionData)return;const q=$('exceptionSearch').value.trim().toLowerCase(),st=$('exceptionStatus').value;const students=allStudents();const rows=(exceptionData.excepciones||[]).filter(e=>(st==='all'||(st==='active'&&e.activo)||(st==='inactive'&&!e.activo))&&(!q||(e.matricula+' '+e.tipo+' '+e.valor+' '+e.observacion+' '+((students.find(a=>a.matricula===e.matricula)||{}).nombre||'')).toLowerCase().includes(q)));$('exceptionTable').innerHTML=rows.length?rows.map(e=>{const a=students.find(x=>x.matricula===e.matricula)||{};return '<tr><td>'+escapeHtml(e.matricula)+'</td><td>'+escapeHtml(a.nombre||'—')+'</td><td>'+escapeHtml(e.tipo)+'</td><td>'+escapeHtml(e.valor||'—')+'</td><td>'+escapeHtml(e.observacion||'')+'</td><td>'+(e.activo?'<span class="status-on">Activo</span>':'<span class="status-off">Inactivo</span>')+'</td><td><button onclick="toggleException('+e.fila+','+(!e.activo)+')">'+(e.activo?'Deshabilitar':'Habilitar')+'</button></td></tr>'}).join(''):'<tr><td colspan="7" class="empty">No hay excepciones que coincidan.</td></tr>'}
+async function saveException(matricula,tipo,valor='',observacion='',activo=true){if(!matricula){showMessage('panelMsg','Selecciona o escribe una matrícula.','error');return}try{const r=await jsonp({action:'adminexcepcionguardar',token,matricula,tipo,valor,observacion,activo:activo?'TRUE':'FALSE'});if(!r.ok)throw new Error(r.message||'No se pudo guardar.');await cargarExcepciones();showMessage('panelMsg','Excepción guardada correctamente.','success')}catch(e){showMessage('panelMsg',e.message,'error')}}
+async function toggleException(fila,activo){try{const r=await jsonp({action:'adminexcepcionestado',token,fila,activo:activo?'TRUE':'FALSE'});if(!r.ok)throw new Error(r.message||'No se pudo cambiar el estado.');await cargarExcepciones();showMessage('panelMsg',r.message,'success')}catch(e){showMessage('panelMsg',e.message,'error')}}
+$('loginForm').addEventListener('submit',e=>{e.preventDefault();login($('usuario').value.trim(),$('contrasena').value)});
+$('refreshBtn').addEventListener('click',cargarTodo);$('logoutBtn').addEventListener('click',async()=>{try{await jsonp({action:'adminlogout',token})}catch(e){}cerrarSesion()});
+$('modeGeneralBtn').addEventListener('click',()=>{panelMode='general';aplicarModo()});$('modeSecondBtn').addEventListener('click',()=>{panelMode='second';aplicarModo()});$('modeExceptionsBtn').addEventListener('click',()=>{panelMode='exceptions';aplicarModo()});
+$('statusFilter').addEventListener('change',renderWorkshops);$('workshopSearch').addEventListener('input',renderWorkshops);$('secondStatusFilter').addEventListener('change',renderSecond);$('secondWorkshopSearch').addEventListener('input',renderSecond);$('secondStudentStatus').addEventListener('change',renderSecond);$('secondStudentSearch').addEventListener('input',renderSecond);$('studentSearchException').addEventListener('input',renderStudentSearch);$('exceptionSearch').addEventListener('input',renderExceptions);$('exceptionStatus').addEventListener('change',renderExceptions);
+$('exceptionForm').addEventListener('submit',async e=>{e.preventDefault();await saveException($('exMatricula').value.trim(),$('exTipo').value,$('exValor').value.trim(),$('exObservacion').value.trim(),$('exActivo').value==='TRUE')});
+async function habilitarSegunda(tipo,valor,observacion){
+  const matricula=$('exMatricula').value.trim();
+  if(!matricula){showMessage('panelMsg','Selecciona o escribe una matrícula.','error');return}
+  await saveException(matricula,tipo,valor,observacion,true);
+  const bloqueo=(exceptionData?.excepciones||[]).find(e=>e.matricula===matricula && e.tipo==='BLOQUEAR_SEGUNDA' && e.activo);
+  if(bloqueo){await toggleException(bloqueo.fila,false);}
 }
-
-function showMessage(el, text, type='info') {
-  $(el).innerHTML = text ? '<div class="msg '+type+'">'+escapeHtml(text)+'</div>' : '';
-}
-function escapeHtml(value){return String(value ?? '').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
-
-async function login(usuario, contrasena){
-  $('loginBtn').disabled = true;
-  showMessage('loginMsg','Validando credenciales...','info');
-  try {
-    const r = await jsonp({action:'adminlogin', usuario, contrasena});
-    if (!r.ok) throw new Error(r.message || 'No fue posible iniciar sesión.');
-    token = r.token;
-    sessionStorage.setItem(TOKEN_KEY, token);
-    $('loginView').classList.add('hidden');
-    $('panelView').classList.remove('hidden');
-    await cargarDatos();
-  } catch(e) {
-    showMessage('loginMsg', e.message, 'error');
-  } finally { $('loginBtn').disabled = false; }
-}
-
-async function cargarDatos(){
-  if(!token){mostrarLogin();return;}
-  $('refreshBtn').disabled = true;
-  showMessage('panelMsg','Actualizando información...','info');
-  try {
-    const r = await jsonp({action:'admindata', token});
-    if(!r.ok){
-      if((r.message||'').toLowerCase().includes('sesion')){cerrarSesionLocal();return;}
-      throw new Error(r.message || 'No fue posible cargar el panel.');
-    }
-    data = r;
-    showMessage('panelMsg','Información actualizada.','success');
-    renderStats();
-    renderSecondRound();
-    renderWorkshops();
-    renderDetail();
-    aplicarModoPanel();
-    $('updatedAt').textContent = 'Última actualización: ' + new Date(r.generado).toLocaleString('es-MX');
-  } catch(e) {
-    showMessage('panelMsg', e.message, 'error');
-  } finally { $('refreshBtn').disabled = false; }
-}
-
-
-function aplicarModoPanel(){
-  const second = panelMode === 'second';
-  $('secondRoundSection').classList.toggle('hidden', !second);
-  $('stats').classList.toggle('hidden', second);
-  $('workshops').parentElement.classList.toggle('hidden', second);
-  $('detailSection').classList.add('hidden');
-  $('studentSearchSection').classList.add('hidden');
-  $('unregisteredSection').classList.add('hidden');
-  $('modeFirstBtn').classList.toggle('active', !second);
-  $('modeSecondBtn').classList.toggle('active', second);
-  if(second) renderSecondRound();
-}
-
-function renderSecondRound(){
-  const s = data?.segundaVuelta;
-  if(!s){
-    $('secondStats').innerHTML = '<div class="msg error">El backend actual no devolvió datos de segunda vuelta. Publica la versión unificada del Apps Script.</div>';
-    return;
-  }
-
-  const stats = [
-    ['Alumnos autorizados', s.autorizados],
-    ['Ya eligieron segundo taller', s.registradosSegundoTaller],
-    ['Pendientes', s.pendientesSegundoTaller],
-    ['Segundos talleres registrados', s.totalSegundosTalleres],
-    ['Tercer taller (excepción)', s.registradosTercerTaller || 0]
-  ];
-  $('secondStats').innerHTML = stats.map(x =>
-    '<div class="second-stat"><div class="n">'+escapeHtml(x[1])+'</div><div class="l">'+escapeHtml(x[0])+'</div></div>'
-  ).join('');
-
-  const status = $('secondStatusFilter').value;
-  const q = $('secondWorkshopSearch').value.trim().toLowerCase();
-  const workshops = (s.talleres || []).filter(w => {
-    if(status === 'available' && w.lleno) return false;
-    if(status === 'full' && !w.lleno) return false;
-    return !q || w.name.toLowerCase().includes(q) || w.id.toLowerCase().includes(q);
-  });
-
-  $('secondWorkshopTable').innerHTML = workshops.length ? workshops.map(w => {
-    const available = w.disponibles === null ? 'Ilimitado' : w.disponibles;
-    const statusHtml = w.lleno
-      ? '<span class="badge full">LLENO</span>'
-      : '<span class="badge ok">CON CUPO</span>';
-    let gender = '';
-    if(w.porGenero){
-      gender = Object.entries(w.porGenero)
-        .map(([g,x]) => escapeHtml(g)+': '+x.disponibles+' libres')
-        .join(' · ');
-    }
-    return '<tr>'+
-      '<td><strong>'+escapeHtml(w.name)+'</strong><div class="small">'+escapeHtml(w.day)+' · '+escapeHtml(w.time)+(gender?' · '+gender:'')+'</div></td>'+
-      '<td><strong>'+w.inscritosSegundaVuelta+'</strong></td>'+
-      '<td>'+escapeHtml(w.cupo)+'</td>'+
-      '<td>'+escapeHtml(available)+'</td>'+
-      '<td>'+statusHtml+'</td>'+
-      '</tr>';
-  }).join('') : '<tr><td colspan="5" class="empty">No hay talleres que coincidan con el filtro.</td></tr>';
-
-  const studentStatus = $('secondStudentStatus').value;
-  const sq = $('secondStudentSearch').value.trim().toLowerCase();
-  const students = (s.alumnos || []).filter(a => {
-    if(studentStatus === 'pending' && a.registradoSegundo) return false;
-    if(studentStatus === 'done' && !a.registradoSegundo) return false;
-    const hay = (a.nombre+' '+a.matricula+' '+a.grupo+' '+a.genero+' '+a.primerTaller+' '+a.segundoTaller).toLowerCase();
-    return !sq || hay.includes(sq);
-  });
-
-  $('secondStudentTable').innerHTML = students.length ? students.map((a,i) =>
-    '<tr>'+
-    '<td>'+(i+1)+'</td>'+
-    '<td>'+escapeHtml(a.matricula)+'</td>'+
-    '<td>'+escapeHtml(a.nombre)+'</td>'+
-    '<td>'+escapeHtml(a.grupo)+'</td>'+
-    '<td>'+escapeHtml(a.primerTaller || '—')+'</td>'+
-    '<td>'+escapeHtml(a.segundoTaller || '—')+'</td>'+
-    '<td>'+escapeHtml(a.tercerTaller || '—')+'</td>'+
-    '<td>'+ (a.registradoTercero
-      ? '<span class="status-second status-done">3º registrado</span>'
-      : (a.registradoSegundo
-          ? '<span class="status-second status-done">2º registrado</span>'
-          : '<span class="status-second status-pending">Pendiente</span>')) +
-    '</td></tr>'
-  ).join('') : '<tr><td colspan="8" class="empty">No hay alumnos que coincidan con el filtro.</td></tr>';
-}
-
-function renderStats(){
-  const s=data.resumen;
-  const items=[
-    {label:'Alumnos inscritos a taller', value:s.alumnosInscritos ?? s.alumnos, clickable:false},
-    {label:'Alumnos sin inscripción a taller', value:s.alumnosSinInscripcion ?? 0, clickable:true},
-    {label:'Inscripciones a talleres', value:s.inscripciones, clickable:false},
-    {label:'Talleres', value:s.talleres, clickable:false},
-    {label:'Talleres llenos', value:s.talleresLlenos, clickable:false},
-    {label:'Talleres con cupo', value:s.talleresConCupo, clickable:false}
-  ];
-  $('stats').innerHTML=items.map((x,i)=>{
-    const cls=x.clickable?'stat clickable':'stat';
-    const attrs=x.clickable?' role="button" tabindex="0" onclick="mostrarSinInscripcion()" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();mostrarSinInscripcion();}"':'';
-    return '<div class="'+cls+'"'+attrs+'><div class="n">'+escapeHtml(x.value)+'</div><div class="l">'+escapeHtml(x.label)+(x.clickable?' · Ver lista':'')+'</div></div>';
-  }).join('');
-}
-
-function renderWorkshops(){
-  const status=$('statusFilter').value, q=$('workshopSearch').value.trim().toLowerCase();
-  const list=(data.talleres||[]).filter(w=>{
-    if(status==='available' && w.lleno)return false;
-    if(status==='full' && !w.lleno)return false;
-    return !q || w.name.toLowerCase().includes(q) || w.id.toLowerCase().includes(q);
-  });
-  $('workshops').innerHTML=list.length?list.map(w=>{
-    const selected=w.id===selectedWorkshopId?' selected':'';
-    const badge=w.quotaType==='unlimited'?'<span class="badge unlimited">ILIMITADO</span>':w.lleno?'<span class="badge full">LLENO</span>':'<span class="badge ok">CON CUPO</span>';
-    const progress=w.quotaType==='unlimited'?0:(w.porcentaje||0);
-    let extra='';
-    if(w.porGenero){
-      extra=Object.entries(w.porGenero).map(([g,x])=>escapeHtml(g)+': '+x.inscritos+'/'+x.capacidad+' ('+x.disponibles+' libres)').join(' · ');
-    }
-    const available=w.disponibles===null?'Ilimitado':w.disponibles;
-    return '<div class="workshop'+selected+'">'+
-      '<div class="workshop-head"><div><div class="workshop-name">'+escapeHtml(w.name)+'</div><div class="meta">'+escapeHtml(w.day)+' · '+escapeHtml(w.time)+'<br>Cupo: '+escapeHtml(w.cupo)+' · Inscritos: '+w.inscritos+' · Disponibles: '+escapeHtml(available)+'</div></div>'+badge+'</div>'+ 
-      '<div class="bar"><div style="width:'+progress+'%"></div></div>'+ 
-      '<div class="meta">Ocupación: '+(w.quotaType==='unlimited'?'Sin límite':progress+'%')+(extra?' · '+extra:'')+'</div>'+ 
-      '<div style="margin-top:12px"><button onclick="seleccionarTaller(\''+w.id.replace(/'/g,"\\'")+'\')">Ver inscritos ('+w.inscritos+')</button></div>'+ 
-      '</div>';
-  }).join(''):'<div class="empty">No hay talleres que coincidan con el filtro.</div>';
-}
-
-function abrirBusquedaAlumno(){
-  $('studentSearchSection').classList.remove('hidden');
-  $('adminStudentSearch').focus();
-  $('studentSearchSection').scrollIntoView({behavior:'smooth',block:'start'});
-}
-
-function cerrarBusquedaAlumno(){
-  $('studentSearchSection').classList.add('hidden');
-}
-
-function buscarAlumnoAdmin(){
-  const q=$('adminStudentSearch').value.trim().toLowerCase();
-  if(q.length<2){
-    $('adminStudentResults').innerHTML='<div class="empty">Escribe al menos 2 caracteres para buscar.</div>';
-    return;
-  }
-
-  const rows=(data?.alumnos||[]).filter(a=>{
-    const hay=(a.nombre+' '+a.matricula+' '+a.grupo+' '+a.genero).toLowerCase();
-    return hay.includes(q);
-  });
-
-  if(!rows.length){
-    $('adminStudentResults').innerHTML='<div class="empty">No se encontró ningún alumno con ese criterio.</div>';
-    return;
-  }
-
-  $('adminStudentResults').innerHTML=rows.map(a=>{
-    const registros=a.registros||[];
-    return '<div class="student-result">'+
-      '<h3>'+escapeHtml(a.nombre)+'</h3>'+
-      '<div class="small">Matrícula: '+escapeHtml(a.matricula)+' · Grupo: '+escapeHtml(a.grupo)+' · Género: '+escapeHtml(a.genero)+'</div>'+
-      '<div style="margin-top:10px"><strong>'+registros.length+' taller'+(registros.length===1?'':'es')+' inscrito'+(registros.length===1?'':'s')+'</strong></div>'+
-      registros.map(r=>'<div class="student-workshop"><strong>'+escapeHtml(r.taller)+'</strong><span class="small">'+escapeHtml(r.dia)+' · '+escapeHtml(r.horario)+' · Fecha: '+escapeHtml(r.fecha)+'</span></div>').join('')+
-      '</div>';
-  }).join('');
-}
-
-function limpiarBusquedaAlumno(){
-  $('adminStudentSearch').value='';
-  $('adminStudentResults').innerHTML='<div class="empty">Escribe al menos 2 caracteres para buscar.</div>';
-  $('adminStudentSearch').focus();
-}
-
-function mostrarSinInscripcion(){
-  const section=$('unregisteredSection');
-  section.classList.remove('hidden');
-  $('unregisteredSearch').value='';
-  renderUnregistered();
-  section.scrollIntoView({behavior:'smooth',block:'start'});
-}
-
-function renderUnregistered(){
-  const rows=(data?.alumnosSinInscripcion||[]);
-  const q=$('unregisteredSearch').value.trim().toLowerCase();
-  const filtered=rows.filter(a=>{
-    const hay=(a.nombre+' '+a.matricula+' '+a.grupo+' '+a.genero).toLowerCase();
-    return !q||hay.includes(q);
-  });
-  $('unregisteredTable').innerHTML=filtered.length?filtered.map((a,i)=>
-    '<tr><td>'+(i+1)+'</td><td>'+escapeHtml(a.matricula)+'</td><td>'+escapeHtml(a.nombre)+'</td><td>'+escapeHtml(a.grupo)+'</td><td>'+escapeHtml(a.genero)+'</td></tr>'
-  ).join(''):'<tr><td colspan="5" class="empty">No hay alumnos sin inscripción que coincidan con la búsqueda.</td></tr>';
-}
-
-function seleccionarTaller(id){selectedWorkshopId=id;renderWorkshops();renderDetail();window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});}
-function renderDetail(){
-  const w=(data?.talleres||[]).find(x=>x.id===selectedWorkshopId);
-  if(!w){$('detailSection').classList.add('hidden');return;}
-  $('detailSection').classList.remove('hidden');
-  $('detailTitle').textContent='Inscritos · '+w.name;
-  $('detailMeta').textContent=w.day+' · '+w.time+' · '+w.inscritos+' inscritos · '+(w.disponibles===null?'cupo ilimitado':w.disponibles+' lugares disponibles');
-  const q=$('studentSearch').value.trim().toLowerCase();
-  const rows=(w.alumnos||[]).filter(a=>{
-    const hay=(a.nombre+' '+a.matricula+' '+a.grupo+' '+a.genero).toLowerCase();return !q||hay.includes(q);
-  });
-  $('studentTable').innerHTML=rows.length?rows.map((a,i)=>'<tr><td>'+(i+1)+'</td><td>'+escapeHtml(a.matricula)+'</td><td>'+escapeHtml(a.nombre)+'</td><td>'+escapeHtml(a.grupo)+'</td><td>'+escapeHtml(a.genero)+'</td><td>'+escapeHtml(a.fecha)+'</td></tr>').join(''):'<tr><td colspan="6" class="empty">No hay inscritos que coincidan con la búsqueda.</td></tr>';
-}
-
-async function logout(){
-  try{if(token)await jsonp({action:'adminlogout',token});}catch(e){}
-  cerrarSesionLocal();
-}
-function cerrarSesionLocal(){sessionStorage.removeItem(TOKEN_KEY);token='';data=null;selectedWorkshopId='';mostrarLogin();}
-function mostrarLogin(){$('panelView').classList.add('hidden');$('loginView').classList.remove('hidden');$('usuario').focus();}
-
-$('loginForm').addEventListener('submit',e=>{e.preventDefault();login($('usuario').value.trim(),$('contrasena').value);});
-$('togglePassword').addEventListener('click',()=>{
-  const input=$('contrasena');
-  const visible=input.type==='text';
-  input.type=visible?'password':'text';
-  $('togglePassword').textContent=visible?'👁':'🙈';
-  $('togglePassword').setAttribute('aria-label',visible?'Mostrar contraseña':'Ocultar contraseña');
-  $('togglePassword').setAttribute('title',visible?'Mostrar contraseña':'Ocultar contraseña');
-});
-$('refreshBtn').addEventListener('click',cargarDatos);
-$('unregisteredSearch').addEventListener('input',renderUnregistered);
-$('adminStudentSearch').addEventListener('input',buscarAlumnoAdmin);
-$('clearStudentSearch').addEventListener('click',limpiarBusquedaAlumno);
-$('studentSearchTopBtn').addEventListener('click',abrirBusquedaAlumno);
-$('closeStudentSearch').addEventListener('click',cerrarBusquedaAlumno);
-$('logoutBtn').addEventListener('click',logout);
-$('statusFilter').addEventListener('change',renderWorkshops);
-$('workshopSearch').addEventListener('input',renderWorkshops);
-$('studentSearch').addEventListener('input',renderDetail);
-
-
-$('modeFirstBtn').addEventListener('click',()=>{panelMode='first';aplicarModoPanel();});
-$('modeSecondBtn').addEventListener('click',()=>{panelMode='second';aplicarModoPanel();});
-$('secondStatusFilter').addEventListener('change',renderSecondRound);
-$('secondWorkshopSearch').addEventListener('input',renderSecondRound);
-$('secondStudentStatus').addEventListener('change',renderSecondRound);
-$('secondStudentSearch').addEventListener('input',renderSecondRound);
-
-if(token){$('loginView').classList.add('hidden');$('panelView').classList.remove('hidden');cargarDatos();}
+$('quickSecond').addEventListener('click',()=>habilitarSegunda('SEGUNDA_VUELTA','','Habilitado desde panel'));
+$('quickFirstSecond').addEventListener('click',()=>habilitarSegunda('PRIMER_REGISTRO_SEGUNDA','1','Puede realizar su primer registro durante segunda vuelta'));
+$('quickThree').addEventListener('click',()=>saveException($('exMatricula').value.trim(),'MAX_TALLERES','3','Permitir hasta tres talleres'));
+$('quickBlock').addEventListener('click',()=>saveException($('exMatricula').value.trim(),'BLOQUEAR_SEGUNDA','','Bloqueado desde panel'));
+if(token){$('loginView').classList.add('hidden');$('panelView').classList.remove('hidden');cargarTodo()}
 </script>
 </body>
 </html>
